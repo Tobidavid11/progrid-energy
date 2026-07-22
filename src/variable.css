@@ -1,0 +1,54 @@
+:root {
+  /* Color — light surface, solar-panel orange, meter-readout yellow */
+  --bg-void: #ffffff;
+  --bg-elevated: #f6f6f4;
+  --bg-elevated-2: #efefec;
+  --bg-dark: #121212;
+  --line: rgba(13, 13, 13, 0.09);
+  --line-strong: rgba(13, 13, 13, 0.16);
+
+  --text-primary: #0d0d0d;
+  --text-muted: #5b5b58;
+  --text-faint: #8a8a86;
+  --text-on-dark: #f5f5f3;
+
+  --accent-current: #fc4502;   /* primary orange — CTAs, links, price */
+  --accent-current-hover: #e13d00;
+  --accent-gold: #faea07;      /* stat/highlight yellow block */
+
+  --status-live: #1fae5c;      /* in stock */
+  --status-out: #e0413a;       /* out of stock */
+
+  /* Type */
+  --font-display: "Space Grotesk", "Arial Narrow", sans-serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "JetBrains Mono", "IBM Plex Mono", monospace;
+
+  --fs-display-xl: clamp(2.75rem, 5vw + 1rem, 5.5rem);
+  --fs-display-lg: clamp(2.25rem, 3vw + 1rem, 3.5rem);
+  --fs-display-md: clamp(1.5rem, 1.5vw + 1rem, 2.25rem);
+  --fs-body-lg: 1.125rem;
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+  --fs-mono: 0.8125rem;
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2.5rem;
+  --space-6: 4rem;
+  --space-7: 6rem;
+  --space-8: 9rem;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 18px;
+
+  --container-w: 1240px;
+  --ease-grid: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --navbar-topbar: var(--accent-current);
+--glass-bg-light: rgba(255, 255, 255, 0.82);
+}

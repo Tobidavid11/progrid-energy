@@ -1,0 +1,149 @@
+.footer {
+  background: var(--bg-dark);
+  padding-top: var(--space-7);
+  overflow: hidden;
+}
+
+.footer__top {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--space-6);
+  padding-bottom: var(--space-6);
+}
+
+.footer__tagline {
+  color: rgba(245, 245, 243, 0.65);
+  font-size: var(--fs-body);
+  max-width: 32ch;
+  margin-bottom: var(--space-4);
+}
+
+.footer__socials {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.footer__social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-on-dark);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.footer__social-btn:hover {
+  background: var(--accent-current);
+  color: #ffffff;
+}
+
+.footer__copyright {
+  display: block;
+  font-size: var(--fs-mono);
+  font-family: var(--font-mono);
+  color: rgba(245, 245, 243, 0.4);
+}
+
+.footer__columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+.footer__column-heading {
+  color: var(--text-on-dark);
+  font-size: var(--fs-body);
+  font-weight: 700;
+  margin-bottom: var(--space-3);
+}
+
+.footer__column-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.footer__link {
+  font-size: var(--fs-small);
+  color: rgba(245, 245, 243, 0.55);
+  transition: color 0.2s ease;
+}
+
+.footer__link:hover {
+  color: var(--accent-current);
+}
+
+/* ---------- Wordmark ---------- */
+
+.footer__wordmark-wrap {
+  width: 100%;
+  overflow: hidden;
+  padding: 0 var(--space-4);
+  display: flex;
+  justify-content: center;
+}
+
+.footer__wordmark {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(3.5rem, 12vw, 11rem);
+  line-height: 0.85;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  margin: 0;
+  padding-top: var(--space-4);
+  will-change: clip-path, filter, opacity;
+
+  /* fallback: visible solid color if text-stroke isn't supported */
+  color: rgba(252, 69, 2, 0.4);
+}
+
+@supports ((-webkit-text-stroke: 1px) or (text-stroke: 1px)) {
+  .footer__wordmark {
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(252, 69, 2, 0.4);
+    text-stroke: 1px rgba(252, 69, 2, 0.4);
+    animation: footer-wordmark-glow 4s ease-in-out infinite;
+  }
+}
+
+@keyframes footer-wordmark-glow {
+  0%,
+  100% {
+    -webkit-text-stroke-color: rgba(252, 69, 2, 0.35);
+    text-stroke-color: rgba(252, 69, 2, 0.35);
+    filter: drop-shadow(0 0 0px rgba(252, 69, 2, 0));
+  }
+  50% {
+    -webkit-text-stroke-color: rgba(252, 69, 2, 0.8);
+    text-stroke-color: rgba(252, 69, 2, 0.8);
+    filter: drop-shadow(0 0 14px rgba(252, 69, 2, 0.3));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer__wordmark {
+    animation: none !important;
+  }
+}
+
+@media (max-width: 860px) {
+  .footer__top {
+    grid-template-columns: 1fr;
+  }
+
+  .footer__columns {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-5);
+  }
+}
+
+@media (max-width: 560px) {
+  .footer__columns {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,179 @@
+.wcu-section {
+  width: 100%;
+  background: #ffffff;
+  padding: 100px 24px;
+  box-sizing: border-box;
+}
+
+.wcu-container {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.2fr 1fr;
+  gap: 0;
+  align-items: start;
+}
+
+/* ---------- Left column ---------- */
+
+.wcu-left {
+  padding-right: 48px;
+  padding-top: 4px;
+}
+
+.wcu-heading {
+  font-size: 40px;
+  line-height: 1.15;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin: 0 0 20px;
+  letter-spacing: -0.01em;
+}
+
+.wcu-subheading {
+  font-size: 16px;
+  color: #6b6f76;
+  margin: 0 0 40px;
+  font-weight: 400;
+}
+
+.wcu-cta-row {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.wcu-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #e35b25;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.wcu-cta-arrow {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ---------- Middle + right feature columns ---------- */
+
+.wcu-col {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 260px;
+  max-width: 300px;
+}
+
+.wcu-col-middle {
+  margin-left: auto;
+  margin-top: 150px;
+  padding-right: 50px;
+}
+
+.wcu-col-right {
+  /* padding-left: 56px; */
+}
+
+.wcu-feature {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.wcu-feature:not(:last-child) {
+  padding-bottom: 28px;
+  border-bottom: 1px solid #e7e7e9;
+}
+
+.wcu-icon-wrap {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.wcu-icon {
+  width: 34px;
+  height: 34px;
+  color: #e35b25;
+}
+
+.wcu-feature-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 6px;
+}
+
+.wcu-feature-desc {
+  font-size: 14px;
+  line-height: 1.55;
+  color: #7a7d84;
+  margin: 0;
+  max-width: 240px;
+}
+
+/* ---------- Divider ---------- */
+
+.wcu-divider {
+  background: #e0e0e2;
+  width: 1px;
+  height: 100%;
+  align-self: stretch;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+  .wcu-container {
+    grid-template-columns: 1fr;
+  }
+
+  .wcu-left {
+    padding-right: 0;
+    margin-bottom: 48px;
+  }
+
+  .wcu-divider {
+    display: none;
+  }
+
+  .wcu-col-middle,
+  .wcu-col-right {
+    padding: 0;
+    max-width: none;
+  }
+
+  .wcu-col-right {
+    margin-top: 8px;
+  }
+
+  .wcu-heading {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 520px) {
+  .wcu-section {
+    padding: 64px 20px;
+  }
+
+  .wcu-cta-row {
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wcu-section * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

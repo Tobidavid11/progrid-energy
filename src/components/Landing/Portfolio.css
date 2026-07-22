@@ -1,0 +1,118 @@
+.portfolio {
+  padding: var(--space-7) 0;
+}
+
+.portfolio__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.portfolio__title {
+  font-size: var(--fs-display-md);
+  margin-bottom: var(--space-2);
+}
+
+.portfolio__subtitle {
+  font-size: var(--fs-body-lg);
+  color: var(--text-muted);
+  max-width: 560px;
+}
+
+.portfolio__view-all {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.8rem 1.5rem;
+  border-radius: 999px;
+  background: var(--bg-dark);
+  color: var(--text-on-dark);
+  font-weight: 600;
+  font-size: var(--fs-small);
+  white-space: nowrap;
+  transition: background 0.25s ease;
+}
+
+.portfolio__view-all:hover {
+  background: #000000;
+}
+
+.portfolio__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.portfolio__card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  border: 1px solid rgba(252, 69, 2, 0.28);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  transition: box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.portfolio__card:hover {
+  box-shadow: 0 16px 40px rgba(13, 13, 13, 0.08);
+}
+
+.portfolio__card--reverse {
+  flex-direction: row-reverse;
+}
+
+.portfolio__image {
+  flex: 0 0 44%;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+}
+
+.portfolio__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.portfolio__content {
+  flex: 1;
+}
+
+.portfolio__project-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: var(--space-1);
+}
+
+.portfolio__handle {
+  display: block;
+  font-size: var(--fs-small);
+  color: var(--text-faint);
+  margin-bottom: var(--space-3);
+}
+
+.portfolio__desc {
+  font-size: var(--fs-body);
+  color: var(--text-muted);
+  max-width: 46ch;
+}
+
+@media (max-width: 860px) {
+  .portfolio__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .portfolio__card,
+  .portfolio__card--reverse {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-4);
+  }
+
+  .portfolio__image {
+    flex: none;
+    aspect-ratio: 16 / 9;
+  }
+}
