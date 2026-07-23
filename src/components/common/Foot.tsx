@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 // import { Facebook, Instagram, Twitter } from "lucide-react";
-import { FaFacebook, FaInstagram, FaTiktok, FaTwitter } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaTiktok} from 'react-icons/fa';
 import "./Footer.css";
 
 const EASE_OUT = [0.16, 1, 0.3, 1] as const;
@@ -33,10 +33,10 @@ const LINK_COLUMNS = [
 ];
 
 const SOCIALS = [
-  { icon: FaFacebook, href: "https://facebook.com", label: "Facebook" },
+  { icon: FaFacebook, href: "https://www.facebook.com/share/1Hesq1X87U/", label: "Facebook" },
   { icon: FaInstagram, href: "https://www.instagram.com/progrid_energy/", label: "Instagram" },
-  { icon: FaTwitter, href: "https://x.com", label: "X" },
-  { icon: FaTiktok, href: "https://tiktok.com", label: "tiktok" },
+  // { icon: FaTwitter, href: "https://x.com", label: "X" },
+  { icon: FaTiktok, href: "https://www.tiktok.com/@progridenergy", label: "tiktok" },
 ];
 
 export default function Footer() {
