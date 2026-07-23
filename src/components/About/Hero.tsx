@@ -1,6 +1,6 @@
 import { motion, useReducedMotion } from "framer-motion";
 import "./Hero.css";
-
+import AboutHero from "../../assets/abouthero.jpg"
 const HEADING_LINE_1 = "Powering Progress.";
 const HEADING_LINE_2 = "One Home. One Business. One Community at a Time.";
 
@@ -34,7 +34,7 @@ interface HeroProps {
 }
 
 export default function Hero({
-  backgroundImage = "https://coldwellsolar.com/wp-content/uploads/2022/12/solar-farm-in-agriculture.jpg",
+  backgroundImage = AboutHero,
   backgroundAlt = "",
 }: HeroProps) {
   const prefersReducedMotion = useReducedMotion();

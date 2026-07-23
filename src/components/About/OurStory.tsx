@@ -1,9 +1,9 @@
 import { motion, useReducedMotion } from "framer-motion";
 import "./OurStory.css";
 
-import storyImage1 from "../../assets/solar-farm.jpg";
-import storyImage2 from "../../assets/solar-farm.jpg";
-import storyImage3 from "../../assets/solar-farm.jpg";
+import storyImage1 from "../../assets/aboutcard1.jpg";
+import storyImage2 from "../../assets/aboutcard2.jpg";
+import storyImage3 from "../../assets/aboutcard3.jpg";
 
 const PARAGRAPHS = [
   "Progrid Energy was founded with one mission—to make clean, reliable, and affordable energy accessible to everyone.",
