@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
-import logo from "../../assets/logo.svg";
+import logo from "../../assets/Logo.svg";
 import "../../styles/navbar.css";
 
 const LINKS = [
