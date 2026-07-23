@@ -40,7 +40,7 @@ export default function Hero() {
               Explore Products
             </motion.a>
             <motion.a
-              href="/#contact"
+              href="/contact"
               className="btn btn-ghost"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
