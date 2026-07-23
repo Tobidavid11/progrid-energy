@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
-import { FaFacebook, FaInstagram, FaTiktok, FaTwitter } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa";
 
 import "./Footer.css";
 
@@ -51,10 +51,9 @@ const columns: FooterColumn[] = [
 ];
 
 const socials = [
-  { icon: FaFacebook, label: "Facebook", href: "#" },
-  { icon: FaInstagram, label: "Instagram", href: "#" },
-  { icon: FaTiktok, label: "TikTok", href: "#" },
-  { icon: FaTwitter, label: "X", href: "#" },
+   { icon: FaFacebook, href: "https://www.facebook.com/share/1Hesq1X87U/", label: "Facebook" },
+  { icon: FaInstagram, href: "https://www.instagram.com/progrid_energy/", label: "Instagram" },
+  { icon: FaTiktok, href: "https://www.tiktok.com/@progridenergy", label: "tiktok" },
 ];
 
 /* ---------- Animation variants ---------- */
