@@ -101,12 +101,10 @@ const missionItemVariants = {
 
 export default function DedicatedToChange({
   backgroundImage = image ,
-  eyebrow = "About",
   heading = "Dedicated to Change",
   photoHeading = "Reliable Energy Solutions",
   photochild = "We design and install solar systems that deliver dependable power every day, helping homes and businesses stay productive without interruption.",
   photoCtaLabel = "Contact Us",
-  statsLabel = "Actions Template Results",
   stats = defaultStats,
   missionItems = defaultMissionItems,
 }: DedicatedToChangeProps) {
@@ -122,7 +120,6 @@ export default function DedicatedToChange({
           animate={isInView ? "visible" : "hidden"}
           variants={headerVariants}
         >
-          <span className="dtc-eyebrow">{eyebrow}</span>
           <h2 className="dtc-heading">{heading}</h2>
         </motion.div>
 
@@ -149,7 +146,6 @@ export default function DedicatedToChange({
           </motion.div>
 
           <motion.div className="dtc-stats-card" variants={cardVariants}>
-            <span className="dtc-stats-label">{statsLabel}</span>
             <div className="dtc-stats-list">
               {stats.map((stat) => (
                 <div className="dtc-stat" key={stat.label}>
