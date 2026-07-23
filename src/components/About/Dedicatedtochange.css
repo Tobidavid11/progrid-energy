@@ -1,0 +1,215 @@
+
+.dtc-section {
+  background: var(--bg-void, #ffffff);
+  padding: var(--space-7, 6rem) 0;
+}
+
+/* ---------- Header ---------- */
+
+.dtc-header {
+  text-align: center;
+  margin-bottom: var(--space-5, 2.5rem);
+}
+
+.dtc-eyebrow {
+  display: inline-block;
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: var(--fs-mono, 0.8125rem);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint, #8a8a86);
+  margin-bottom: var(--space-2, 0.5rem);
+}
+
+.dtc-heading {
+  font-family: var(--font-display, "Space Grotesk", sans-serif);
+  font-size: var(--fs-display-lg, clamp(2.25rem, 3vw + 1rem, 3.5rem));
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.08;
+  color: var(--text-primary, #0d0d0d);
+  margin: 0;
+}
+
+/* ---------- Grid: photo card + stats card ---------- */
+
+.dtc-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--space-4, 1.5rem);
+  margin-bottom: var(--space-5, 2.5rem);
+}
+
+.dtc-photo-card {
+  position: relative;
+  min-height: 380px;
+  border-radius: var(--radius-lg, 18px);
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+}
+
+.dtc-photo-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(13, 13, 13, 0.82) 0%,
+    rgba(13, 13, 13, 0.35) 45%,
+    rgba(13, 13, 13, 0) 75%
+  );
+}
+
+.dtc-photo-content {
+  position: relative;
+  z-index: 1;
+  padding: var(--space-4, 1.5rem);
+  max-width: 320px;
+}
+
+.dtc-photo-heading {
+  font-family: var(--font-display, "Space Grotesk", sans-serif);
+ 
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--text-on-dark, #f5f5f3);
+  margin: 0 0 var(--space-3, 1rem);
+}
+.h{
+ font-size: 1.375rem;
+}
+
+.p{
+  font-size: 0.175rem;
+ 
+}
+
+.dtc-photo-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body, "Inter", sans-serif);
+  font-size: var(--fs-small, 0.875rem);
+  font-weight: 600;
+  color: var(--text-on-dark, #f5f5f3);
+  border-bottom: 1px solid rgba(245, 245, 243, 0.4);
+  padding-bottom: 2px;
+  transition: border-color 0.2s ease, color 0.2s ease, gap 0.2s ease;
+}
+
+.dtc-photo-cta:hover {
+  color: var(--accent-current, #fc4502);
+  border-color: var(--accent-current, #fc4502);
+  gap: 9px;
+}
+
+.dtc-stats-card {
+  background: rgba(31, 174, 92, 0.14);
+  border: 1px solid rgba(31, 174, 92, 0.28);
+  border-radius: var(--radius-lg, 18px);
+  padding: var(--space-4, 1.5rem);
+  display: flex;
+  flex-direction: column;
+}
+
+.dtc-stats-label {
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: var(--fs-mono, 0.8125rem);
+  letter-spacing: 0.06em;
+  color: var(--status-live, #1fae5c);
+  margin-bottom: var(--space-4, 1.5rem);
+}
+
+.dtc-stats-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3, 1rem);
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.dtc-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-bottom: var(--space-3, 1rem);
+  border-bottom: 1px solid rgba(31, 174, 92, 0.22);
+}
+
+.dtc-stat:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.dtc-stat-value {
+  font-family: var(--font-display, "Space Grotesk", sans-serif);
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--text-primary, #0d0d0d);
+}
+
+.dtc-stat-label {
+  font-family: var(--font-body, "Inter", sans-serif);
+  font-size: var(--fs-small, 0.875rem);
+  color: var(--text-muted, #5b5b58);
+}
+
+/* ---------- Mission row ---------- */
+
+.dtc-mission-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4, 1.5rem);
+  padding-top: var(--space-4, 1.5rem);
+  border-top: 1px solid var(--line, rgba(13, 13, 13, 0.09));
+}
+
+.dtc-mission-title {
+  font-family: var(--font-display, "Space Grotesk", sans-serif);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text-primary, #0d0d0d);
+  margin: 0 0 6px;
+}
+
+.dtc-mission-desc {
+  font-family: var(--font-body, "Inter", sans-serif);
+  font-size: var(--fs-small, 0.875rem);
+  line-height: 1.55;
+  color: var(--text-muted, #5b5b58);
+  margin: 0;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 860px) {
+  .dtc-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dtc-mission-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .dtc-section {
+    padding: var(--space-6, 4rem) 0;
+  }
+
+  .dtc-photo-card {
+    min-height: 300px;
+  }
+
+  .dtc-mission-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dtc-photo-cta {
+    transition: none !important;
+  }
+}

@@ -21,25 +21,30 @@ const columns: FooterColumn[] = [
   {
     title: "Links",
     links: [
-      { label: "Domains", href: "#" },
-      { label: "Pricing", href: "#" },
-      { label: "Guides", href: "#" },
-      { label: "Status Page", href: "#" },
-      { label: "DNS Lookup", href: "#" },
+      { label: "Home", href: "#" },
+      { label: "About", href: "#" },
+      { label: "Products", href: "#" },
+      { label: "Services", href: "#" },
+      { label: "FAQs", href: "#" },
+    ],
+  },
+  {
+    title: "Our Services",
+    links: [
+      { label: "Solar Installation", href: "#" },
+      { label: "CCTV Installation", href: "#" },
+      { label: "Energy Consultation", href: "#" },
+      { label: "Electrical Services", href: "#" },
+      { label: "Maintenance & Support", href: "#" },
     ],
   },
   {
     title: "Support",
     links: [
-      { label: "About Us", href: "#" },
       { label: "Contact Us", href: "#" },
-      { label: "Donate", href: "#" },
-    ],
-  },
-  {
-    title: "Legal",
-    links: [
-      { label: "Terms & Conditions", href: "#" },
+      { label: "Request a Quote", href: "#" },
+      { label: "Warranty Information", href: "#" },
+      { label: "Installation Guide", href: "#" },
       { label: "Privacy Policy", href: "#" },
     ],
   },
@@ -85,7 +90,7 @@ export default function Footer() {
         >
           <motion.div className="footer__left" variants={itemVariants}>
             <p className="footer__tagline">
-              Develop with your favorite tools. Launch globally, instantly.
+Reliable solar solutions for homes, businesses, and industries across Nigeria.
             </p>
 
             <div className="footer__socials">
@@ -105,7 +110,7 @@ export default function Footer() {
             </div>
 
             <span className="footer__copyright">
-              © Progrid Energy&nbsp; •&nbsp; MMXXIV — MMXXVI
+          © 2024–2026 Progrid Energy &nbsp; •&nbsp;  All Rights Reserved.
             </span>
           </motion.div>
 

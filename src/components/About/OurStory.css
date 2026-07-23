@@ -1,0 +1,140 @@
+.our-story {
+  position: relative;
+  width: 100%;
+    background: var(--bg-elevated, #f6f6f4);
+  padding: clamp(3.5rem, 8vw, 6.5rem) clamp(1.5rem, 6vw, 5rem);
+}
+
+.our-story__inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(2.5rem, 6vw, 5rem);
+  align-items: center;
+}
+
+/* ---------- Text column ---------- */
+
+
+
+.our-story__heading {
+  margin: 0 0 1.5rem;
+  color: #14201c;
+  
+  font-weight: 700;
+  font-size: clamp(2rem, 3.4vw, 2.9rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.our-story__paragraph {
+  margin: 0 0 1.1rem;
+  max-width: 560px;
+  color: #4a534e;
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  line-height: 1.75;
+}
+
+.our-story__paragraph:last-of-type {
+  margin-bottom: 2rem;
+}
+
+.our-story__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1.75rem;
+  background-color: var( --text-primary) ;
+  color:var(--text-on-dark) ;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 999px;
+  text-decoration: none;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.our-story__cta:hover {
+  background-color: var(--accent-current-hover);
+  color:var(--text-on-dark) ;
+}
+
+.our-story__cta-arrow {
+  width: 18px;
+  height: 18px;
+}
+
+/* ---------- Photo gallery column ---------- */
+.our-story__gallery {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  min-height: 400px;
+}
+
+.our-story__photo {
+  overflow: hidden;
+  border-radius: 30px;
+  flex-shrink: 0;
+}
+
+.our-story__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* First image */
+.our-story__photo--main {
+  width: 140px;
+  height: 300px;
+  margin-top: 40px;
+}
+
+/* Middle image */
+.our-story__photo--top {
+  width: 150px;
+  height: 360px;
+}
+
+/* Last image */
+.our-story__photo--bottom {
+  width: 120px;
+  height: 290px;
+  margin-top: -30px;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+  .our-story__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .our-story__gallery {
+    min-height: 340px;
+    order: -1;
+  }
+}
+
+@media (max-width: 480px) {
+  .our-story__gallery {
+    grid-template-columns: 1fr 1fr;
+    min-height: 280px;
+  }
+
+  .our-story__photo--top,
+  .our-story__photo--bottom {
+    margin: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .our-story__cta {
+    transition: none;
+  }
+}

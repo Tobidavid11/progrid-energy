@@ -1,5 +1,5 @@
 .hero {
-  padding: var(--space-7) 0 var(--space-6);
+  padding: var(--space-8) 0 var(--space-6);
   overflow: hidden;
 }
 
@@ -22,6 +22,7 @@
 .hero__subtitle {
   font-size: var(--fs-body-lg);
   color: var(--text-muted);
+  
   max-width: 46ch;
   margin-bottom: var(--space-5);
 }
@@ -144,10 +145,7 @@
     order: 2;
   }
 
-  .hero__blob {
-    aspect-ratio: 4 / 3;
-    border-radius: 40px 120px 40px 120px / 120px 40px 120px 40px;
-  }
+  
 
   .hero__badge--stats {
     bottom: -16px;

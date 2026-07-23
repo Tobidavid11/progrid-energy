@@ -148,6 +148,7 @@
   .wcu-col-middle,
   .wcu-col-right {
     padding: 0;
+    margin: 0;
     max-width: none;
   }
 
@@ -168,6 +169,19 @@
   .wcu-cta-row {
     gap: 24px;
     flex-wrap: wrap;
+  }
+
+  .wcu-col {
+    min-width: 0;
+    max-width: none;
+  }
+
+  .wcu-feature-desc {
+    max-width: none;
+  }
+
+  .wcu-heading {
+    font-size: 28px;
   }
 }
 

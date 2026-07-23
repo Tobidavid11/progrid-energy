@@ -1,8 +1,9 @@
 .cta-card {
   position: relative;
-  width: 100%;
+  width: 90%;
   max-width: 1180px;
-  margin: 0 auto;
+  margin:  0 auto;
+  padding-bottom: 30px;
   border-radius: 28px;
   overflow: hidden;
   isolation: isolate;
@@ -102,8 +103,8 @@
   align-items: center;
   justify-content: center;
   white-space: nowrap;
-  background: #14183a;
-  color: #f4e409;
+  background: var(--text-primary);
+  color: var(--text-on-dark);
   font-size: 14px;
   font-weight: 700;
   border: none;

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import logo from "../../assets/Logo.svg";
 import "../../styles/navbar.css";
 
@@ -22,14 +22,21 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Lock body scroll while the mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
   return (
     <>
-      <div className="navbar__topbar" />
       <motion.header
         initial={{ y: -24, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        className={`navbar ${scrolled ? "navbar--scrolled" : ""}`}
+        className={`navbar ${scrolled ? "navbar--scrolled" : ""} ${open ? "navbar--open" : ""}`}
       >
         <div className="container navbar__outer">
           <div className="navbar__inner">
@@ -70,18 +77,46 @@ export default function Navbar() {
               </motion.a>
 
               <button
-                className="navbar__toggle"
+                className={`navbar__toggle ${open ? "navbar__toggle--open" : ""}`}
                 aria-label={open ? "Close menu" : "Open menu"}
                 aria-expanded={open}
                 onClick={() => setOpen((v) => !v)}
               >
-                <span />
-                <span />
+                <motion.span
+                  animate={
+                    open
+                      ? { rotate: 45, y: 0 }
+                      : { rotate: 0, y: -4 }
+                  }
+                  transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                />
+                <motion.span
+                  animate={
+                    open
+                      ? { rotate: -45, y: 0 }
+                      : { rotate: 0, y: 4 }
+                  }
+                  transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                />
               </button>
             </div>
           </div>
         </div>
       </motion.header>
+
+      {/* Blurred backdrop behind the open mobile menu */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            className="navbar__backdrop"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            onClick={() => setOpen(false)}
+          />
+        )}
+      </AnimatePresence>
     </>
   );
 }

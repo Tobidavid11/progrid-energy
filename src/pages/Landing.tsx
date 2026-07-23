@@ -8,6 +8,7 @@ import Portfolio from "../components/Landing/Portfolio";
 import Difference from "../components/Landing/Whychoosus";
 import Testimonial from "../components/Landing/Testimonial";
 import Faq from "../components/Landing/Faq";
+
 // import Footer from "../components/common/Footer";
 
 export default function Landing() {

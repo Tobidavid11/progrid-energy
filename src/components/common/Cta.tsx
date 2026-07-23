@@ -1,11 +1,11 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import "./CTA.css";
+import "./Cta.css";
+import Image from "../../assets/solar-farm.jpg"
 
 interface CTAProps {
-  /** Path or imported URL of the background image. Pass this in from the parent. */
-  backgroundImage: string;
   heading?: string;
+backgroundImage?: string;
   subheading?: string;
   listItems?: string[];
   bannerText?: string;
@@ -13,11 +13,14 @@ interface CTAProps {
   onCtaClick?: () => void;
 }
 
+ 
+
+
 const defaultListItems = [
-  "Home Cleaning",
-  "Store Cleaning",
-  "Workspace Cleaning",
-  "Move In / Out Cleaning",
+  "Solar Installation",
+    "CCTV Installation",
+    "Energy Consultation",
+    "Maintenance & Support",
 ];
 
 const EASE_OUT = [0.22, 1, 0.36, 1] as const;
@@ -47,13 +50,14 @@ const bannerVariants = {
   },
 };
 
-export default function CTA({
-  backgroundImage,
-  heading = "Cleaning That Works Around You",
-  subheading = "Our expert cleaners handle the mess so you can focus on what matters.",
+export default function Cta({
+  backgroundImage = Image,
+  heading="Ready for Reliable Power?",
+  subheading="Power your home or business with dependable solar solutions from Progrid Energy.",
   listItems = defaultListItems,
-  bannerText = "Got a space in need of a refresh?",
-  ctaLabel = "Schedule a Call",
+  bannerText="Ready to switch to uninterrupted power?",
+  ctaLabel="Get a Free Quote",
+
   onCtaClick,
 }: CTAProps) {
   const sectionRef = useRef<HTMLDivElement>(null);

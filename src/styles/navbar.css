@@ -1,10 +1,6 @@
-.navbar__topbar {
-  height: 4px;
-  background: var(--navbar-topbar);
-}
-
 .navbar {
-  position: sticky;
+  width: 100%;
+  position: fixed;
   top: 0;
   z-index: 50;
   padding: var(--space-4) 0;
@@ -27,6 +23,8 @@
   border-radius: 999px;
   border: 1px solid var(--line);
   box-shadow: 0 8px 30px rgba(13, 13, 13, 0.08);
+  position: relative;
+  z-index: 51; /* keep the pill above the backdrop */
   transition: background 0.35s ease, box-shadow 0.35s ease,
     backdrop-filter 0.35s ease, transform 0.35s var(--ease-grid);
 }
@@ -108,19 +106,40 @@
   border-radius: 999px;
 }
 
+/* ---------- Toggle button (hamburger -> X) ---------- */
+
 .navbar__toggle {
   display: none;
-  flex-direction: column;
-  gap: 5px;
+  position: relative;
+  width: 32px;
+  height: 32px;
   background: none;
   border: none;
-  padding: 8px;
+  padding: 0;
+  cursor: pointer;
+  flex-shrink: 0;
 }
 
 .navbar__toggle span {
-  width: 20px;
+  position: absolute;
+  left: 6px;
+  right: 6px;
+  top: 50%;
   height: 2px;
+  border-radius: 2px;
   background: var(--text-primary);
+  transform-origin: center;
+}
+
+/* ---------- Backdrop blur (mobile menu open) ---------- */
+
+.navbar__backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(13, 13, 13, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 45;
 }
 
 @media (max-width: 860px) {
@@ -133,7 +152,7 @@
   }
 
   .navbar__toggle {
-    display: flex;
+    display: block;
   }
 
   .navbar__links {
@@ -151,6 +170,7 @@
     padding: var(--space-4);
     gap: var(--space-3);
     display: none;
+    z-index: 50;
   }
 
   .navbar__links--open {

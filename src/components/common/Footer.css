@@ -1,5 +1,6 @@
 .footer {
   background: var(--bg-dark);
+  margin-top: 50px;
   padding-top: var(--space-7);
   overflow: hidden;
 }
