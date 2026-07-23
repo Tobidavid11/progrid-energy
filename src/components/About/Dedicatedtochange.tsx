@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
-import "./DedicatedToChange.css";
+import "./Dedicatedtochange.css";
 import image from "../../assets/solar-farm.jpg"
 
 interface Stat {
