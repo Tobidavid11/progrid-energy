@@ -69,6 +69,7 @@
 /* ---------- Photo gallery column ---------- */
 .our-story__gallery {
   display: flex;
+  
   align-items: center;
   justify-content: center;
   gap: 1rem;
@@ -114,6 +115,21 @@
   .our-story__inner {
     grid-template-columns: 1fr;
   }
+  .our-story__photo--main {
+  width: 100px;
+}
+
+/* Middle image */
+.our-story__photo--top {
+  width: 120px;
+ 
+}
+
+/* Last image */
+.our-story__photo--bottom {
+  width: 100px;
+  
+}
 
   .our-story__gallery {
     min-height: 340px;
@@ -123,9 +139,14 @@
 
 @media (max-width: 480px) {
   .our-story__gallery {
-    grid-template-columns: 1fr 1fr;
+    width: 90%;
+    margin: auto;
+    grid-template-columns: 1fr 1fr 1fr;
     min-height: 280px;
   }
+  /* ..our-story__photo{
+    width: ;
+  } */
 
   .our-story__photo--top,
   .our-story__photo--bottom {
