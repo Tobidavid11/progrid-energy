@@ -4,6 +4,7 @@ import Landing from "../pages/Landing";
 import About from "../pages/About";
 import Products from "../pages/Products";
 import NotFound from "../pages/NotFound";
+import Contact from "../pages/ContactUs"
 
 export default function AppRouter() {
   return (
@@ -12,6 +13,7 @@ export default function AppRouter() {
         <Route path="/" element={<Landing />} />
         <Route path="/about" element={<About />} />
         <Route path="/products" element={<Products />} />
+        <Route path="/contact" element={<Contact/>} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

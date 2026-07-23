@@ -68,7 +68,7 @@ export default function Navbar() {
 
             <div className="navbar__actions">
               <motion.a
-                href="/#contact"
+                href="/contact"
                 className="btn btn-primary navbar__cta"
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.96 }}
