@@ -4,11 +4,23 @@
   overflow: hidden;
 }
 
+.footer__container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 var(--space-5, 3rem);
+}
+
 .footer__top {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: var(--space-6);
-  padding-bottom: var(--space-6);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: var(--space-6, 4rem);
+  padding-bottom: var(--space-6, 4rem);
+}
+
+.footer__left {
+  margin-left: var(--space-2, 0.75rem);
 }
 
 .footer__tagline {
@@ -49,9 +61,9 @@
 }
 
 .footer__columns {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-4);
+  display: flex;
+  gap: var(--space-6, 4rem);
+  flex-wrap: wrap;
 }
 
 .footer__column-heading {
@@ -80,70 +92,66 @@
 /* ---------- Wordmark ---------- */
 
 .footer__wordmark-wrap {
+  container-type: inline-size;
   width: 100%;
   overflow: hidden;
-  padding: 0 var(--space-4);
-  display: flex;
-  justify-content: center;
+  padding: 0 var(--space-4, 2rem);
 }
 
 .footer__wordmark {
-  font-family: var(--font-display);
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 100%;
+  font-family: var(--font-display, inherit);
   font-weight: 700;
-  font-size: clamp(3.5rem, 12vw, 11rem);
+  font-size: clamp(2.5rem, 15vw, 10rem);
   line-height: 0.85;
-  letter-spacing: -0.02em;
-  white-space: nowrap;
+  letter-spacing: -0.01em;
   margin: 0;
-  padding-top: var(--space-4);
-  will-change: clip-path, filter, opacity;
+  padding-top: var(--space-4, 2rem);
 
   /* fallback: visible solid color if text-stroke isn't supported */
-  color: rgba(252, 69, 2, 0.4);
+  color: rgba(252, 69, 2, 0.35);
+}
+
+/* Ties sizing to the wrapper's own width rather than the viewport —
+   robust regardless of where this sits in a wider layout, and keeps
+   both words on one line without needing a stacking fallback. */
+@supports (container-type: inline-size) {
+  .footer__wordmark {
+    font-size: clamp(2.5rem, 14cqw, 10rem);
+  }
 }
 
 @supports ((-webkit-text-stroke: 1px) or (text-stroke: 1px)) {
   .footer__wordmark {
     color: transparent;
-    -webkit-text-stroke: 1px rgba(252, 69, 2, 0.4);
-    text-stroke: 1px rgba(252, 69, 2, 0.4);
-    animation: footer-wordmark-glow 4s ease-in-out infinite;
-  }
-}
-
-@keyframes footer-wordmark-glow {
-  0%,
-  100% {
-    -webkit-text-stroke-color: rgba(252, 69, 2, 0.35);
-    text-stroke-color: rgba(252, 69, 2, 0.35);
-    filter: drop-shadow(0 0 0px rgba(252, 69, 2, 0));
-  }
-  50% {
-    -webkit-text-stroke-color: rgba(252, 69, 2, 0.8);
-    text-stroke-color: rgba(252, 69, 2, 0.8);
-    filter: drop-shadow(0 0 14px rgba(252, 69, 2, 0.3));
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .footer__wordmark {
-    animation: none !important;
+    -webkit-text-stroke: 1.5px rgba(252, 69, 2, 0.35);
+    text-stroke: 1.5px rgba(252, 69, 2, 0.35);
   }
 }
 
 @media (max-width: 860px) {
   .footer__top {
-    grid-template-columns: 1fr;
+    flex-direction: column;
   }
 
   .footer__columns {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-5);
+    gap: var(--space-5, 3rem);
   }
 }
 
 @media (max-width: 560px) {
   .footer__columns {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+    gap: var(--space-5, 3rem);
+  }
+
+  .footer__wordmark {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2, 0.75rem);
   }
 }

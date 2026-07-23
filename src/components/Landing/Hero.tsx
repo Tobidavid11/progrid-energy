@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { MapPin } from "lucide-react";
+// import { MapPin } from "lucide-react";
 import heroImg from "../../assets/hero-image.svg";
 // import avatar1 from "../../assets/avatars/avatar-1.jpg";
 // import avatar2 from "../../assets/avatars/avatar-2.jpg";

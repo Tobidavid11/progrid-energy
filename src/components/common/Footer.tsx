@@ -1,15 +1,9 @@
 import { useRef } from "react";
-import {
-  motion,
-  useInView,
-  useScroll,
-  useTransform,
-  useSpring,
-} from "framer-motion";
+import { motion, useInView } from "framer-motion";
 
 import { FaFacebook, FaInstagram, FaTiktok, FaTwitter } from "react-icons/fa";
 
-import "../../styles/Footer.css";
+import "./Footer.css";
 
 /* ---------- Data ---------- */
 
@@ -80,27 +74,6 @@ export default function Footer() {
   const footerRef = useRef<HTMLElement>(null);
   const isInView = useInView(footerRef, { once: true, amount: 0.15 });
 
-  /* Scroll-linked wordmark wipe: reveal tracks scroll position rather
-     than firing once, so it "unrolls" as the footer scrolls into view. */
-  const wordmarkRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: wordmarkRef,
-    offset: ["start 0.9", "start 0.25"],
-  });
-  const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 300,
-    damping: 40,
-    mass: 0.5,
-  });
-
-  const clipPath = useTransform(
-    smoothProgress,
-    (v) => `inset(0 ${(1 - v) * 100}% 0 0)`
-  );
-  const blur = useTransform(smoothProgress, [0, 1], [14, 0]);
-  const filter = useTransform(blur, (b) => `blur(${b}px)`);
-  const wordmarkOpacity = useTransform(smoothProgress, [0, 0.08], [0, 1]);
-
   return (
     <footer className="footer" ref={footerRef}>
       <div className="footer__container">
@@ -160,13 +133,17 @@ export default function Footer() {
           </div>
         </motion.div>
 
-        <div className="footer__wordmark-wrap" ref={wordmarkRef}>
-          <motion.h2
+        <div className="footer__wordmark-wrap">
+          {/* <motion.h2
             className="footer__wordmark"
-            style={{ clipPath, filter, opacity: wordmarkOpacity }}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            PROGRID ENERGY
-          </motion.h2>
+            <span>PROGRID</span>
+            <span>ENERGY</span>
+          </motion.h2> */}
         </div>
       </div>
     </footer>

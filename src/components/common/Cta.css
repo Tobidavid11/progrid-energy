@@ -1,0 +1,155 @@
+.cta-card {
+  position: relative;
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  border-radius: 28px;
+  overflow: hidden;
+  isolation: isolate;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+.cta-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: -2;
+}
+
+.cta-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    rgba(10, 10, 10, 0.88) 0%,
+    rgba(10, 10, 10, 0.72) 38%,
+    rgba(10, 10, 10, 0.35) 68%,
+    rgba(10, 10, 10, 0.55) 100%
+  );
+  z-index: -1;
+}
+
+.cta-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4, 2rem);
+  padding: 64px 48px 40px;
+  flex-wrap: wrap;
+}
+
+.cta-main {
+  max-width: 480px;
+}
+
+.cta-heading {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  line-height: 1.08;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 20px;
+  letter-spacing: -0.01em;
+}
+
+.cta-subheading {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 34ch;
+  margin: 0;
+}
+
+.cta-list {
+  list-style: none;
+  margin: 0;
+  padding: 6px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: right;
+}
+
+.cta-list-item {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.cta-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background: #f4e409;
+  padding: 26px 32px;
+  flex-wrap: wrap;
+}
+
+.cta-banner-text {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #171717;
+  margin: 0;
+  max-width: 30ch;
+}
+
+.cta-banner-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  background: #14183a;
+  color: #f4e409;
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+  border-radius: 999px;
+  padding: 14px 28px;
+  cursor: pointer;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 760px) {
+  .cta-card {
+    border-radius: 20px;
+  }
+
+  .cta-content {
+    padding: 44px 28px 32px;
+  }
+
+  .cta-list {
+    text-align: left;
+    width: 100%;
+  }
+
+  .cta-banner {
+    padding: 22px 24px;
+  }
+
+  .cta-banner-text {
+    max-width: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .cta-banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cta-banner-btn {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta-card * {
+    transition: none !important;
+  }
+}

@@ -62,7 +62,7 @@ const pathVariants = {
   show: {
     pathLength: 1,
     opacity: 1,
-    transition: { pathLength: { duration: 1.6, ease: [0.16, 1, 0.3, 1] }, opacity: { duration: 0.3 } },
+    transition: { pathLength: { duration: 1.6, ease: [0.16, 1, 0.3, 1]as const }, opacity: { duration: 0.3 } },
   },
 };
 
@@ -71,7 +71,7 @@ const dotVariants = {
   show: (i: number) => ({
     scale: 1,
     opacity: 1,
-    transition: { delay: 0.3 + i * 0.35, duration: 0.4, ease: [0.16, 1, 0.3, 1] },
+    transition: { delay: 0.3 + i * 0.35, duration: 0.4, ease: [0.16, 1, 0.3, 1]as const },
   }),
 };
 
@@ -80,7 +80,7 @@ const labelVariants = {
   show: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: 0.45 + i * 0.35, duration: 0.5, ease: [0.16, 1, 0.3, 1] },
+    transition: { delay: 0.45 + i * 0.35, duration: 0.5, ease: [0.16, 1, 0.3, 1]as const },
   }),
 };
 
