@@ -154,24 +154,9 @@ display:none
   }
   .btn-mobile{
 display:flex;
- background: none;
- width: max-content;
- padding: 0;
-
-   font-size: var(--fs-small);
-  font-weight: 600;
-  color: var(--text-faint);
 
   }
-   .btn-mobile:hover{
-    background-color: none;
-    color: none;
-     color: var(--text-faint);
 
-  }
-  .btn-mobile:active{
-    text-decoration: 1px underline solid var(--accent-current);
-  }
   .btn-nav{
 display:none
   }
