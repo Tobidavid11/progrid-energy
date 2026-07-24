@@ -141,7 +141,9 @@
   -webkit-backdrop-filter: blur(8px);
   z-index: 45;
 }
-
+ .btn-mobile{
+display:none
+  }
 @media (max-width: 860px) {
   .navbar__inner {
     padding: 0.6rem 0.6rem 0.6rem 1rem;
@@ -149,6 +151,12 @@
 
   .navbar__cta {
     display: none;
+  }
+  .btn-mobile{
+display:flex
+  }
+  .btn-nav{
+display:none
   }
 
   .navbar__toggle {

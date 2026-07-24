@@ -8,6 +8,7 @@ const LINKS = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
   { label: "Products", to: "/products" },
+
   // { label: "FAQ", to: "/#faq" },
 ];
 
@@ -64,12 +65,20 @@ export default function Navbar() {
                   </NavLink>
                 </motion.div>
               ))}
+               <motion.a
+                href="/contact"
+                className="btn btn-primary navbar__cta btn-mobile"
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.96 }}
+              >
+                Contact Us
+              </motion.a>
             </nav>
 
             <div className="navbar__actions">
               <motion.a
                 href="/contact"
-                className="btn btn-primary navbar__cta"
+                className="btn btn-primary navbar__cta btn-desk"
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.96 }}
               >
