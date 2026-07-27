@@ -1,0 +1,188 @@
+.admin-orders {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4, 1.5rem);
+}
+
+.admin-orders__search input {
+  width: 100%;
+  max-width: 360px;
+  font-family: var(--font-body, "Inter", sans-serif);
+  font-size: var(--fs-body, 1rem);
+  color: var(--text-primary, #0d0d0d);
+  background: var(--bg-void, #ffffff);
+  border: 1px solid var(--line-strong, rgba(13, 13, 13, 0.16));
+  border-radius: var(--radius-sm, 6px);
+  padding: 0.65rem 0.85rem;
+  outline: none;
+}
+
+.admin-orders__search input:focus {
+  border-color: var(--accent-current, #fc4502);
+}
+
+.admin-orders__state {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body, "Inter", sans-serif);
+  font-size: var(--fs-small, 0.875rem);
+  color: var(--text-muted, #5b5b58);
+  padding: var(--space-4, 1.5rem) 0;
+}
+
+.admin-orders__state--error {
+  color: var(--status-out, #e0413a);
+}
+
+.admin-orders__spin {
+  animation: admin-orders-spin 0.8s linear infinite;
+}
+
+@keyframes admin-orders-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.admin-orders__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3, 1rem);
+}
+
+.admin-orders__card {
+  background: var(--bg-void, #ffffff);
+  border: 1px solid var(--line, rgba(13, 13, 13, 0.09));
+  border-radius: var(--radius-md, 10px);
+  padding: var(--space-4, 1.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3, 1rem);
+}
+
+.admin-orders__card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3, 1rem);
+}
+
+.admin-orders__card-top h3 {
+  font-family: var(--font-display, "Space Grotesk", sans-serif);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary, #0d0d0d);
+  margin: 0 0 2px;
+}
+
+.admin-orders__date {
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: var(--fs-mono, 0.8125rem);
+  color: var(--text-faint, #8a8a86);
+}
+
+.admin-orders__payment-badge {
+  flex-shrink: 0;
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: var(--fs-mono, 0.8125rem);
+  font-weight: 600;
+  text-transform: capitalize;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+}
+
+.admin-orders__payment-badge.is-paid {
+  background: rgba(31, 174, 92, 0.12);
+  color: var(--status-live, #1fae5c);
+}
+
+.admin-orders__payment-badge.is-pending {
+  background: rgba(250, 234, 7, 0.18);
+  color: #8a7900;
+}
+
+.admin-orders__payment-badge.is-failed {
+  background: rgba(224, 65, 58, 0.1);
+  color: var(--status-out, #e0413a);
+}
+
+.admin-orders__contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3, 1rem);
+  font-family: var(--font-body, "Inter", sans-serif);
+  font-size: var(--fs-small, 0.875rem);
+  color: var(--text-muted, #5b5b58);
+}
+
+.admin-orders__contact a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--text-muted, #5b5b58);
+}
+
+.admin-orders__contact a:hover {
+  color: var(--accent-current, #fc4502);
+}
+
+.admin-orders__address {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.admin-orders__items {
+  font-family: var(--font-body, "Inter", sans-serif);
+  font-size: var(--fs-small, 0.875rem);
+  color: var(--text-primary, #0d0d0d);
+  padding-top: var(--space-2, 0.5rem);
+  border-top: 1px solid var(--line, rgba(13, 13, 13, 0.09));
+}
+
+.admin-orders__card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3, 1rem);
+  flex-wrap: wrap;
+}
+
+.admin-orders__total {
+  font-family: var(--font-display, "Space Grotesk", sans-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary, #0d0d0d);
+}
+
+.admin-orders__status-select {
+  font-family: var(--font-body, "Inter", sans-serif);
+  font-size: var(--fs-small, 0.875rem);
+  font-weight: 600;
+  border: 1px solid var(--line-strong, rgba(13, 13, 13, 0.16));
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+  background: var(--bg-void, #ffffff);
+  color: var(--text-primary, #0d0d0d);
+}
+
+.admin-orders__status-select.is-new {
+  border-color: var(--accent-current, #fc4502);
+  color: var(--accent-current, #fc4502);
+}
+
+.admin-orders__status-select.is-fulfilled {
+  border-color: var(--status-live, #1fae5c);
+  color: var(--status-live, #1fae5c);
+}
+
+.admin-orders__status-select:disabled {
+  opacity: 0.6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .admin-orders__spin {
+    animation: none !important;
+  }
+}

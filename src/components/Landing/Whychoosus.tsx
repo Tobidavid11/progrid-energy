@@ -109,7 +109,7 @@ export default function WhyChoosUs() {
 
           <div className="wcu-cta-row">
             <motion.a
-              href="#contact"
+              href="/contact"
               className="wcu-cta"
               whileHover="hover"
               initial="rest"

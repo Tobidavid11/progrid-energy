@@ -6,6 +6,9 @@ import Products from "../pages/Products";
 import NotFound from "../pages/NotFound";
 import Contact from "../pages/ContactUs";
 import ScrollToTop from "../components/ScrollToTop/ScrolltoTop";
+import RequireAdmin from "../components/Admin/RequireAdmin";
+import AdminProductsPage from "../components/Admin/AdminProductPage";
+
 
 export default function AppRouter() {
   return (
@@ -18,6 +21,14 @@ export default function AppRouter() {
           <Route path="/products" element={<Products />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
+          <Route
+  path="/admin/products"
+  element={
+    <RequireAdmin>
+      <AdminProductsPage />
+    </RequireAdmin>
+  }
+/>
         </Route>
       </Routes>
     </>

@@ -8,12 +8,15 @@ import Portfolio from "../components/Landing/Portfolio";
 import Difference from "../components/Landing/Whychoosus";
 import Testimonial from "../components/Landing/Testimonial";
 import Faq from "../components/Landing/Faq";
-
+import Cta from "../components/common/Cta";
+import Footer from "../components/common/Footer"
+import Navbar from "../components/common/NavBar";
 // import Footer from "../components/common/Footer";
 
 export default function Landing() {
   return (
     <>
+    <Navbar/>
       <Hero />
       <TrustedBy />
       <About />
@@ -24,7 +27,8 @@ export default function Landing() {
       <Difference />
       <Testimonial />
       <Faq/>
-      {/* <Footer/> */}
+       <Cta />
+      <Footer />
     </>
   );
 }

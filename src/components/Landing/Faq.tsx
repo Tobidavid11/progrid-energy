@@ -112,7 +112,7 @@ export default function Faq() {
               we'll get back to you as soon as possible!
             </p>
             <motion.a
-              href="/#contact"
+             href="mailto:progridsupport@gmail.com"
               className="btn btn-primary faq__cta-btn"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}

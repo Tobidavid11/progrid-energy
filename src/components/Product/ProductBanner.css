@@ -1,0 +1,123 @@
+/* ==========================================================
+   ProductsBanner
+   Design canvas: 1600 x 600px (see sizing notes below).
+   The image is the design — keep essential text/logo inside
+   the middle 60% of the canvas, since the edges get cropped
+   first on ultra-wide or narrow screens.
+   ========================================================== */
+
+.pbanner {
+  position: relative;
+  width: 100%;
+  border-radius: var(--radius-lg, 20px);
+  overflow: hidden;
+  outline: none;
+  margin: 32px auto;
+}
+
+.pbanner:focus-visible {
+  box-shadow: 0 0 0 3px var(--accent-current, #2f6fed);
+}
+
+.pbanner__viewport {
+  position: relative;
+  width: 100%;
+  /* Master ratio: 1600 / 600. Kept the SAME at every breakpoint on
+     purpose — since there's one landscape design shared across all
+     screens, changing the ratio would force object-fit: cover to
+     crop the sides/top to fill a different shape. Same ratio in,
+     same ratio out = the full image always shows, just scaled.
+     If a mobile-specific crop is added later via `mobileImage`,
+     a portrait override can be reintroduced safely at that point. */
+  aspect-ratio: 8 / 3;
+}
+
+.pbanner__slide {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.pbanner__media {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.pbanner__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* ---------- Arrows ---------- */
+
+.pbanner__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--text-primary, #0d0d0d);
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.pbanner__arrow:hover {
+  background: #fff;
+  transform: translateY(-50%) scale(1.06);
+}
+
+.pbanner__arrow--prev {
+  left: var(--space-4, 1rem);
+}
+.pbanner__arrow--next {
+  right: var(--space-4, 1rem);
+}
+
+@media (max-width: 599px) {
+  .pbanner__arrow {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* ---------- Dots ---------- */
+
+.pbanner__dots {
+  position: absolute;
+  bottom: var(--space-4, 1rem);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  gap: 0.4rem;
+}
+
+.pbanner__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  padding: 0;
+  transition: width 0.25s var(--ease-grid, ease), background 0.25s ease;
+}
+
+.pbanner__dot.is-active {
+  width: 22px;
+  background: #fff;
+}

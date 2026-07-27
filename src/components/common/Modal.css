@@ -1,0 +1,89 @@
+.modal__backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(13, 13, 13, 0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 100;
+}
+
+.modal__wrap {
+  position: fixed;
+  inset: 0;
+  z-index: 101;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4, 1.5rem);
+  overflow-y: auto;
+}
+
+.modal__panel {
+  width: 100%;
+  max-width: 560px;
+  max-height: calc(100vh - var(--space-6, 4rem));
+  overflow-y: auto;
+  background: var(--bg-void, #ffffff);
+  border-radius: var(--radius-lg, 18px);
+  box-shadow: 0 30px 80px rgba(13, 13, 13, 0.25);
+}
+
+.modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4, 1.5rem) var(--space-4, 1.5rem) 0;
+}
+
+.modal__header h2 {
+  font-family: var(--font-display, "Space Grotesk", sans-serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary, #0d0d0d);
+  margin: 0;
+}
+
+.modal__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: var(--bg-elevated, #f6f6f4);
+  color: var(--text-muted, #5b5b58);
+  flex-shrink: 0;
+}
+
+.modal__close:hover {
+  background: var(--bg-elevated-2, #efefec);
+  color: var(--text-primary, #0d0d0d);
+}
+
+.modal__body {
+  padding: var(--space-4, 1.5rem);
+}
+
+/* The form inside doesn't need its own card chrome when it's already
+   inside a modal panel — this neutralizes AdminProductForm's own
+   background/border/shadow/max-width so it doesn't double up. */
+.modal__body .admin-product-form {
+  background: none;
+  border: none;
+  padding: 0;
+  max-width: none;
+}
+
+@media (max-width: 560px) {
+  .modal__wrap {
+    padding: 0;
+    align-items: flex-end;
+  }
+
+  .modal__panel {
+    max-width: none;
+    max-height: 92vh;
+    border-radius: var(--radius-lg, 18px) var(--radius-lg, 18px) 0 0;
+  }
+}
