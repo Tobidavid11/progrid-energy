@@ -28,7 +28,7 @@ interface DedicatedToChangeProps {
 }
 
 const defaultStats: Stat[] = [
-  { value: "500+", label: "Solar Installations" },
+  { value: "200+", label: "Solar Installations" },
   { value: "1000+", label: "Customers Served" },
   { value: "5MW+", label: "Solar Capacity Installed" },
 ];

@@ -13,9 +13,9 @@ type Stat = {
 
 const STATS: Stat[] = [
   { value: 98, suffix: "%", label: "Customer Satisfaction", variant: "yellow" },
-  { value: 500, suffix: "+", label: "Solar Installations", variant: "gray" },
+  { value: 200, suffix: "+", label: "Solar Installations", variant: "gray" },
   { value: 24, suffix: "/7", label: "Technical Support", variant: "gray" },
-  { value: 10, suffix: "+ Years", label: "Industry Experience", variant: "orange" },
+  { value: 6, suffix: "+ Years", label: "Industry Experience", variant: "orange" },
 ];
 
 function CountUp({ value, suffix }: { value: number; suffix: string }) {
