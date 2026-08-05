@@ -9,7 +9,7 @@ interface Feature {
   title: string;
   description: string;
 }
-
+const WHATSAPP_NUMBER = "2347061103583";
 const leftFeatures: Feature[] = [
   {
     icon: Gem,
@@ -109,7 +109,7 @@ export default function WhyChoosUs() {
 
           <div className="wcu-cta-row">
             <motion.a
-              href="/contact"
+                           href="/contact"
               className="wcu-cta"
               whileHover="hover"
               initial="rest"
@@ -129,7 +129,9 @@ export default function WhyChoosUs() {
             </motion.a>
 
             <motion.a
-              href="#quote"
+                              href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+                    "Hi, I have a question about Progrid Energy's solutions."
+                  )}`}
               className="wcu-cta"
               whileHover="hover"
               initial="rest"

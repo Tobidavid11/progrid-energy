@@ -49,6 +49,7 @@ const bannerVariants = {
     transition: { duration: 0.6, ease: EASE_OUT, delay: 0.25 },
   },
 };
+const WHATSAPP_NUMBER = "2347061103583";
 
 export default function Cta({
   backgroundImage = Image,
@@ -110,7 +111,15 @@ export default function Cta({
           whileTap={{ scale: 0.97 }}
           transition={{ type: "spring", stiffness: 400, damping: 20 }}
         >
-          {ctaLabel}
+          <a
+            href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+              "Hi, I have a question about Progrid Energy's solutions."
+            )}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {ctaLabel}
+          </a>
         </motion.button>
       </motion.div>
     </div>
