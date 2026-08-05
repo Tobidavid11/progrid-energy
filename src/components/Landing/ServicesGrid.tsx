@@ -5,7 +5,7 @@ import energyConsult from "../../assets/ServiceIcon2.svg";
 import cctv from "../../assets/ServiceIcon3.svg";
 import maintenance from "../../assets/ServiceIcon4.svg";
 import electrical from "../../assets/ServiceIcon5.svg";
-import "./Services.css";
+import "./ServicesGrid.css";
 
 type Service = {
   title: string;

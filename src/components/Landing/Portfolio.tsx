@@ -33,20 +33,20 @@ const PROJECTS: Project[] = [
     description:
 "Designed and deployed a robust 5kVA hybrid solar power system featuring a 7.5kWh lithium battery, 3.6kWp bifacial mono solar array, and comprehensive AC/DC protection. Built to provide efficient, uninterrupted power for residential and light commercial applications, the system comfortably supports high-demand appliances such as air conditioners, water heaters, refrigerators, washing machines, entertainment systems, and kitchen equipment, delivering an estimated 6-hour backup at a 1kW load.",
   image: [project2a, project2b],
-  },
+},
+{
+  title: "8kVA Solar Power Installation",
+  handle: "Oyo State, Nigeria",
+  description:
+"Designed and commissioned a dependable 8kVA solar power system equipped with a 10.5kWh tubular battery bank, 5.4kWp mono solar array, and comprehensive AC/DC protection. Built to provide reliable energy for residential and small commercial environments, the system efficiently powers 2HP air conditioning units, refrigeration, water heating, laundry appliances, entertainment systems, and other essential electrical loads, delivering an estimated 5-hour backup at a 1kW load.",
+  image: [project4a, project4b],
+},
   {
     title: "11kVA Hybrid Solar Power Installation",
     handle: "@Port Harcourt, Rivers State, Nigeria",
     description:
 "Engineered and installed a high-capacity 11kVA hybrid solar energy system comprising a 30kWh lithium battery bank, 10.8kWp bifacial mono solar array, and complete AC/DC protection infrastructure. Designed for large residential and commercial energy demands, the system efficiently powers multiple air conditioning units (6–10HP), water heaters, refrigeration, laundry equipment, entertainment systems, and other high-load appliances while delivering an estimated 24-hour backup at a 1.2kW load.",
     image: [project3a, project3b],
-  },
-  {
-    title: "8kVA Solar Power Installation with Tubular Battery Backup",
-    handle: "Oyo State, Nigeria",
-    description:
-"Designed and commissioned a dependable 8kVA solar power system equipped with a 10.5kWh tubular battery bank, 5.4kWp mono solar array, and comprehensive AC/DC protection. Built to provide reliable energy for residential and small commercial environments, the system efficiently powers 2HP air conditioning units, refrigeration, water heating, laundry appliances, entertainment systems, and other essential electrical loads, delivering an estimated 5-hour backup at a 1kW load.",
-    image: [project4a, project4b],
   },
 ];
 
@@ -142,7 +142,7 @@ export default function Portfolio() {
           </motion.div>
 
           <motion.a
-            href="/projects"
+            href="/portfolio"
             className="portfolio__view-all"
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}

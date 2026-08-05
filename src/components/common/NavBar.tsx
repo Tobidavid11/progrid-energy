@@ -9,6 +9,8 @@ const LINKS = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
   { label: "Products", to: "/products" },
+  { label: "Services", to: "/services" },
+  { label: "Portfolio", to: "/portfolio" },
 
   // { label: "FAQ", to: "/#faq" },
 ];

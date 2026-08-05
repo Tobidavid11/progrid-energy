@@ -1,7 +1,7 @@
 import Hero from "../components/Landing/Hero";
 import TrustedBy from "../components/Landing/TrustedBy";
 import About from "../components/Landing/About";
-import Services from "../components/Landing/Services";
+// import Services from "../components/Landing/Services";
 import ProductPreview from "../components/Landing/ProductPreview";
 import HowItWorks from "../components/Landing/HowItWorks";
 import Portfolio from "../components/Landing/Portfolio";
@@ -21,7 +21,7 @@ export default function Landing() {
       <Hero />
       <TrustedBy />
       <About />
-      <Services />
+      {/* <Services /> */}
       <ProductPreview />
       <HowItWorks />
       <Portfolio />
