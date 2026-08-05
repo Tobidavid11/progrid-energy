@@ -8,11 +8,13 @@ import Contact from "../pages/ContactUs";
 import ScrollToTop from "../components/ScrollToTop/ScrolltoTop";
 import RequireAdmin from "../components/Admin/RequireAdmin";
 import AdminProductsPage from "../components/Admin/AdminProductPage";
-
+import ProductDetail from "../components/Product/ProductDetail";
+import { CartProvider } from "../components/Cart/CartContext";
 
 export default function AppRouter() {
   return (
     <>
+<CartProvider>
       <ScrollToTop />
       <Routes>
         <Route element={<Layout />}>
@@ -20,6 +22,7 @@ export default function AppRouter() {
           <Route path="/about" element={<About />} />
           <Route path="/products" element={<Products />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/products/:id" element={<ProductDetail />} />
           <Route path="*" element={<NotFound />} />
           <Route
   path="/admin/products"
@@ -31,6 +34,7 @@ export default function AppRouter() {
 />
         </Route>
       </Routes>
+      </CartProvider>
     </>
   );
 }

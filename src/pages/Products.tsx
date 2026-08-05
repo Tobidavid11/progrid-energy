@@ -7,12 +7,14 @@ import Footer from "../components/common/Footer"
 import Navbar from "../components/common/NavBar";
 
  export default function Product() {
-     return <div className="container">
+     return <>
           <Navbar/>
+     <div className="container">
 <ProductsHero />
          <ProductBanner/>
 <ProductsGrid/>
  <Cta />
       <Footer />
      </div>;
+     </>
    }

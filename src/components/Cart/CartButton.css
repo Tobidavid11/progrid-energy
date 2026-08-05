@@ -1,0 +1,35 @@
+.cart-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: none;
+  color: var(--text-primary, #0d0d0d);
+}
+
+.cart-button:hover {
+  background: var(--bg-elevated, #f6f6f4);
+}
+
+.cart-button__badge {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 17px;
+  height: 17px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: var(--accent-current, #fc4502);
+  color: #ffffff;
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+}

@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import logo from "../../assets/Logo.svg";
 import "../../styles/navbar.css";
+import CartButton from "../Cart/CartButton";
 
 const LINKS = [
   { label: "Home", to: "/" },
@@ -79,6 +80,7 @@ export default function Navbar() {
             </nav>
 
             <div className="navbar__actions">
+              <CartButton/>
               <motion.a
                 href="/contact"
                 className="btn btn-primary navbar__cta btn-desk"

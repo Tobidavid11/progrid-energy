@@ -1,4 +1,3 @@
-
 .dtc-section {
   background: var(--bg-void, #ffffff);
   padding: var(--space-7, 6rem) 0;
@@ -157,11 +156,13 @@
   color: var(--text-muted, #5b5b58);
 }
 
-/* ---------- Mission row ---------- */
+/* ---------- Mission row (Why Choose Progrid) ---------- */
+/* auto-fit instead of a hardcoded column count so this reads well
+   whether missionItems has 4, 5, or any other number of entries */
 
 .dtc-mission-row {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: var(--space-4, 1.5rem);
   padding-top: var(--space-4, 1.5rem);
   border-top: 1px solid var(--line, rgba(13, 13, 13, 0.09));
@@ -188,10 +189,6 @@
 @media (max-width: 860px) {
   .dtc-grid {
     grid-template-columns: 1fr;
-  }
-
-  .dtc-mission-row {
-    grid-template-columns: repeat(2, 1fr);
   }
 }
 

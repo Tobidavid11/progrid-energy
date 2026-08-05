@@ -2,57 +2,68 @@ import { useEffect, useRef, useState } from "react";
 import { Loader2 } from "lucide-react";
 import ProductCard from "../common/ProductCard";
 import ProductSearchBar, { type ProductFilters } from "./ProductSearchBar";
+import Pagination from "../common/Pagination";
 import { fetchProducts } from "../Product/ProductApi";
-import { usePurchaseModal } from "../Product/UsePurchaseModal";
 import type { Product } from "../../types/ProductTypes";
 import "./ProductsGrid.css";
 
 const DEBOUNCE_MS = 300;
+const PAGE_SIZE = 9; // 3 columns × 3 rows
 
 export default function ProductsGrid() {
-  const { openPurchase, purchaseModal } = usePurchaseModal();
   const [products, setProducts] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
+  const [filters, setFilters] = useState<ProductFilters>({
+    searchTerm: "",
+    category: "All Categories",
+  });
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
 
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const handleFilterChange = (filters: ProductFilters) => {
-    // Debounced rather than firing a query on every keystroke — without
-    // this, typing "solar panel" fires 11 separate database queries
-    // instead of one, once typing pauses.
+  // Debounced: only updates `filters` state, doesn't fetch directly.
+  // The effect below (watching filters + page) does the actual fetch,
+  // so page changes (Prev/Next) can skip the debounce entirely and
+  // respond instantly.
+  const handleFilterChange = (next: ProductFilters) => {
     if (debounceRef.current) clearTimeout(debounceRef.current);
+    debounceRef.current = setTimeout(() => {
+      setFilters(next);
+      setPage(1); // A new search/category invalidates whatever page you were on.
+    }, DEBOUNCE_MS);
+  };
 
-    debounceRef.current = setTimeout(async () => {
+  useEffect(() => {
+    let cancelled = false;
+
+    (async () => {
       setIsLoading(true);
-      const { data, error } = await fetchProducts({
+      const { data, error, totalCount } = await fetchProducts({
         searchTerm: filters.searchTerm,
         category: filters.category,
+        page,
+        pageSize: PAGE_SIZE,
       });
+      if (cancelled) return;
 
       if (error) {
         setErrorMessage(error);
       } else {
         setErrorMessage("");
         setProducts(data);
-      }
-      setIsLoading(false);
-    }, DEBOUNCE_MS);
-  };
-
-  // Initial load, before the user has touched the search bar.
-  useEffect(() => {
-    (async () => {
-      setIsLoading(true);
-      const { data, error } = await fetchProducts({});
-      if (error) {
-        setErrorMessage(error);
-      } else {
-        setProducts(data);
+        setTotalPages(Math.max(1, Math.ceil(totalCount / PAGE_SIZE)));
       }
       setIsLoading(false);
     })();
 
+    return () => {
+      cancelled = true;
+    };
+  }, [filters, page]);
+
+  useEffect(() => {
     return () => {
       if (debounceRef.current) clearTimeout(debounceRef.current);
     };
@@ -91,14 +102,16 @@ export default function ProductsGrid() {
                 key={product.id}
                 product={product}
                 index={i}
-                onPurchase={openPurchase}
               />
             ))}
           </div>
         )}
+
+        {!isLoading && products.length > 0 && (
+          <Pagination page={page} totalPages={totalPages} onPageChange={setPage} />
+        )}
       </div>
 
-      {purchaseModal}
     </div>
   );
 }

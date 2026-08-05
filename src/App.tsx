@@ -1,5 +1,6 @@
 import { BrowserRouter } from "react-router-dom";
 import AppRouter from "./router/AppRouter";
+
 // import "./variable.css"
 // import "./global.css"
 

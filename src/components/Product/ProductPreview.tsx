@@ -4,12 +4,10 @@ import { Link } from "react-router-dom";
 import { Loader2 } from "lucide-react";
 import ProductCard from "../common/ProductCard";
 import { fetchProducts } from "../Product/ProductApi";
-import { usePurchaseModal } from "../Product/UsePurchaseModal";
 import type { Product } from "../../types/ProductTypes";
 import "./ProductPreview.css";
 
 export default function ProductPreview() {
-  const { openPurchase, purchaseModal } = usePurchaseModal();
   const [products, setProducts] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
@@ -91,14 +89,11 @@ export default function ProductPreview() {
                 key={product.id}
                 product={product}
                 index={i}
-                onPurchase={openPurchase}
               />
             ))}
           </div>
         )}
       </div>
-
-      {purchaseModal}
     </section>
   );
 }

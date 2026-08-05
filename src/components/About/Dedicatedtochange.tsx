@@ -31,28 +31,32 @@ const defaultStats: Stat[] = [
   { value: "500+", label: "Solar Installations" },
   { value: "1000+", label: "Customers Served" },
   { value: "5MW+", label: "Solar Capacity Installed" },
-  
-
-
 ];
 
 const defaultMissionItems: MissionItem[] = [
   {
-    title: "Our Mission",
-    description: "To provide sustainable energy solutions that improve lives through reliable technology and exceptional service.",
-  },
-  {
-    title: "Our Vision",
-    description: "To become one of Nigeria's most trusted providers of clean energy and smart power solutions.",
-  },
-  {
-    title: "Our Values",
-    description: "Quality. Integrity. Innovation. Reliability. Customer Satisfaction.",
-  },
-  {
-    title: "A Brighter Tomorrow",
+    title: "Tailored Solutions",
     description:
-      "Spreading kindness, fueling dreams, shaping a better world.",
+      "Systems designed to meet each client's budget and exact energy requirements.",
+  },
+  {
+    title: "Quality Assurance",
+    description:
+      "High-quality, durable, warranty-backed products on every project.",
+  },
+  {
+    title: "Expert Team",
+    description:
+      "Certified solar engineers, experienced renewable energy specialists, and qualified project managers.",
+  },
+  {
+    title: "After-Sales Support",
+    description:
+      "Reliable customer service with ongoing monitoring and maintenance.",
+  },
+  {
+    title: "Proven Track Record",
+    description: "A history of successful projects delivered on time and to spec.",
   },
 ];
 
@@ -100,8 +104,8 @@ const missionItemVariants = {
 };
 
 export default function DedicatedToChange({
-  backgroundImage = image ,
-  heading = "Dedicated to Change",
+  backgroundImage = image,
+  heading = "Why Choose Progrid?",
   photoHeading = "Reliable Energy Solutions",
   photochild = "We design and install solar systems that deliver dependable power every day, helping homes and businesses stay productive without interruption.",
   photoCtaLabel = "Contact Us",

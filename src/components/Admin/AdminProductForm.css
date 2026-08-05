@@ -64,6 +64,74 @@
   cursor: not-allowed;
 }
 
+.admin-product-form__hint {
+  font-family: var(--font-body, "Inter", sans-serif);
+  font-size: 0.75rem;
+  color: var(--text-faint, #8a8a86);
+}
+
+.admin-product-form__image-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-2, 0.5rem);
+}
+
+.admin-product-form__image-slot {
+  aspect-ratio: 1 / 1;
+}
+
+.admin-product-form__spec-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.admin-product-form__spec-row input {
+  font-family: var(--font-body, "Inter", sans-serif);
+  font-size: var(--fs-small, 0.875rem);
+  color: var(--text-primary, #0d0d0d);
+  background: var(--bg-void, #ffffff);
+  border: 1px solid var(--line-strong, rgba(13, 13, 13, 0.16));
+  border-radius: var(--radius-sm, 6px);
+  padding: 0.5rem 0.65rem;
+  outline: none;
+}
+
+.admin-product-form__spec-row input:focus {
+  border-color: var(--accent-current, #fc4502);
+}
+
+.admin-product-form__spec-remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm, 6px);
+  border: 1px solid var(--line, rgba(13, 13, 13, 0.09));
+  background: var(--bg-void, #ffffff);
+  color: var(--text-muted, #5b5b58);
+}
+
+.admin-product-form__spec-remove:hover:not(:disabled) {
+  border-color: var(--status-out, #e0413a);
+  color: var(--status-out, #e0413a);
+}
+
+.admin-product-form__spec-add {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body, "Inter", sans-serif);
+  font-size: var(--fs-small, 0.875rem);
+  font-weight: 600;
+  color: var(--accent-current, #fc4502);
+  background: none;
+  border: none;
+  padding: 4px 0;
+}
+
 .admin-product-form__upload {
   display: flex;
   flex-direction: column;
@@ -78,6 +146,10 @@
   font-size: var(--fs-small, 0.875rem);
   cursor: pointer;
   transition: border-color 0.2s ease, color 0.2s ease;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  text-align: center;
 }
 
 .admin-product-form__upload:hover {
@@ -87,8 +159,8 @@
 
 .admin-product-form__preview {
   position: relative;
-  width: 160px;
-  height: 120px;
+  width: 100%;
+  height: 100%;
   border-radius: var(--radius-md, 10px);
   overflow: hidden;
   border: 1px solid var(--line, rgba(13, 13, 13, 0.09));

@@ -11,6 +11,7 @@ import Faq from "../components/Landing/Faq";
 import Cta from "../components/common/Cta";
 import Footer from "../components/common/Footer"
 import Navbar from "../components/common/NavBar";
+  import ChatWidget from "../components/common/ChatWidget";
 // import Footer from "../components/common/Footer";
 
 export default function Landing() {
@@ -26,6 +27,7 @@ export default function Landing() {
       <Portfolio />
       <Difference />
       <Testimonial />
+    <ChatWidget />
       <Faq/>
        <Cta />
       <Footer />

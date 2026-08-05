@@ -2,6 +2,7 @@ import DedicatedToChange from "../components/About/Dedicatedtochange";
 import DedicatedToExcellence from "../components/About/Dedicatedtoexcellence";
 import Hero from "../components/About/Hero";
 import OurStory from "../components/About/OurStory";
+import MissionVision from "../components/About/MissionVision";
 import Cta from "../components/common/Cta";
 import Footer from "../components/common/Footer"
 import Navbar from "../components/common/NavBar";
@@ -10,6 +11,7 @@ import Navbar from "../components/common/NavBar";
       <Navbar/>
       <Hero/>
       <OurStory/>
+      <MissionVision/>
       <DedicatedToExcellence/>
       <DedicatedToChange/>
        <Cta />

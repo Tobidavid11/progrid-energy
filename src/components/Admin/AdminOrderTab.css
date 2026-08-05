@@ -4,9 +4,17 @@
   gap: var(--space-4, 1.5rem);
 }
 
-.admin-orders__search input {
+.admin-orders__controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3, 1rem);
+  flex-wrap: wrap;
+}
+
+.admin-orders__search {
   width: 100%;
-  max-width: 360px;
+  max-width: 320px;
   font-family: var(--font-body, "Inter", sans-serif);
   font-size: var(--fs-body, 1rem);
   color: var(--text-primary, #0d0d0d);
@@ -17,8 +25,33 @@
   outline: none;
 }
 
-.admin-orders__search input:focus {
+.admin-orders__search:focus {
   border-color: var(--accent-current, #fc4502);
+}
+
+.admin-orders__filter {
+  display: flex;
+  gap: 4px;
+  background: var(--bg-elevated, #f6f6f4);
+  border-radius: 999px;
+  padding: 3px;
+}
+
+.admin-orders__filter-btn {
+  font-family: var(--font-body, "Inter", sans-serif);
+  font-size: var(--fs-small, 0.875rem);
+  font-weight: 600;
+  color: var(--text-muted, #5b5b58);
+  background: none;
+  border: none;
+  border-radius: 999px;
+  padding: 0.45rem 0.9rem;
+}
+
+.admin-orders__filter-btn.is-active {
+  background: var(--bg-void, #ffffff);
+  color: var(--text-primary, #0d0d0d);
+  box-shadow: 0 1px 3px rgba(13, 13, 13, 0.1);
 }
 
 .admin-orders__state {
@@ -179,6 +212,21 @@
 
 .admin-orders__status-select:disabled {
   opacity: 0.6;
+}
+
+@media (max-width: 560px) {
+  .admin-orders__controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .admin-orders__search {
+    max-width: none;
+  }
+
+  .admin-orders__filter {
+    justify-content: space-between;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
