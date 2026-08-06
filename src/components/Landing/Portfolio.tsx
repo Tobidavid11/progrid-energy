@@ -113,7 +113,7 @@ export default function Portfolio() {
 
         <div className="portfolio__list">
           {/* {PROJECTS.map((project, i) => ( */}
-          {PROJECTS.slice(0, 3).map((project, i) => (
+          {PROJECTS.slice(0, 2).map((project, i) => (
             <motion.article
               key={`${project.title}-${i}`}
               className={`portfolio__card ${i % 2 === 1 ? "portfolio__card--reverse" : ""}`}
