@@ -12,7 +12,7 @@ import {
   Building2,
   Factory,
 } from "lucide-react";
-import "./ServiceContent.css";
+import "./Servicecontent.css";
 
 interface Service {
   icon: React.ComponentType<{ size?: number; strokeWidth?: number }>;
