@@ -1,12 +1,15 @@
-import Projects from "../components/Landing/Portfolio";
 import Navbar from "../components/common/NavBar";
 import Cta from "../components/common/Cta"
 import Footer from "../components/common/Footer";
+import PortfolioHeader from "../components/Portfolio/PortfolioHeader";
+import PortfolioInfo from "../components/Portfolio/PortfolioInfo";
+
 function Portfolio() {
   return (
     <div>
         <Navbar/>
-        <Projects />
+        <PortfolioHeader />
+        <PortfolioInfo />
         <Cta />
         <Footer />
     </div>

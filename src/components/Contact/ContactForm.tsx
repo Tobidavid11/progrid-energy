@@ -3,6 +3,7 @@ import type { FormEvent } from "react";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Send, Loader2, CheckCircle2 } from "lucide-react";
+import { supabase } from "../../lib/supabase";
 import "./ContactForm.css";
 
 export interface ContactFormData {
@@ -16,7 +17,11 @@ export interface ContactFormData {
 interface ContactFormProps {
   heading?: string;
   description?: string;
-  /** Called when the form is submitted. If omitted, submission is simulated locally. */
+  /**
+   * Called when the form is submitted. If omitted, submits to the
+   * send-contact-email Edge Function directly — which emails an
+   * acknowledgment to the sender and a notification to the team inbox.
+   */
   onSubmit?: (data: ContactFormData) => Promise<void> | void;
 }
 
@@ -48,6 +53,19 @@ const emptyForm: ContactFormData = {
   message: "",
 };
 
+async function sendContactEmail(data: ContactFormData) {
+  const { data: result, error } = await supabase.functions.invoke(
+    "send-contact-email",
+    { body: data }
+  );
+
+  if (error || !result?.sent) {
+    throw new Error(
+      result?.reason ?? error?.message ?? "Could not send your message."
+    );
+  }
+}
+
 export default function ContactForm({
   heading = "Send Us a Message",
   description = "Have questions about our products or services? Fill out the form below and a member of our team will get back to you as soon as possible.",
@@ -58,6 +76,7 @@ export default function ContactForm({
 
   const [form, setForm] = useState<ContactFormData>(emptyForm);
   const [status, setStatus] = useState<Status>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange =
     (field: keyof ContactFormData) =>
@@ -68,19 +87,21 @@ export default function ContactForm({
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("submitting");
+    setErrorMessage("");
 
     try {
       if (onSubmit) {
         await onSubmit(form);
       } else {
-        // No handler wired up yet — simulate the round trip so the UI
-        // states (submitting/success) are visible during development.
-        await new Promise((resolve) => setTimeout(resolve, 900));
+        await sendContactEmail(form);
       }
       setStatus("success");
       setForm(emptyForm);
-    } catch {
+    } catch (err) {
       setStatus("error");
+      setErrorMessage(
+        err instanceof Error ? err.message : "Something went wrong."
+      );
     }
   };
 
@@ -216,7 +237,7 @@ export default function ContactForm({
                 initial={{ opacity: 0, y: 6 }}
                 animate={{ opacity: 1, y: 0 }}
               >
-                Something went wrong. Please try again.
+                {errorMessage || "Something went wrong. Please try again."}
               </motion.span>
             )}
           </div>

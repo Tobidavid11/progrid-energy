@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import { PROJECTS } from "../../data/Projects";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import "./Portfolio.css";
+import "../Landing/Portfolio.css";
+
+
 
 
 
@@ -97,23 +99,10 @@ export default function Portfolio() {
               professionally installed solar systems.
             </p>
           </motion.div>
-
-          <motion.a
-            href="/portfolio"
-            className="portfolio__view-all"
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-10% 0px" }}
-            transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            whileHover={{ y: -2 }}
-          >
-            View More Projects
-          </motion.a>
         </div>
 
         <div className="portfolio__list">
-          {/* {PROJECTS.map((project, i) => ( */}
-          {PROJECTS.slice(0, 3).map((project, i) => (
+          {PROJECTS.map((project, i) => (
             <motion.article
               key={`${project.title}-${i}`}
               className={`portfolio__card ${i % 2 === 1 ? "portfolio__card--reverse" : ""}`}
