@@ -12,7 +12,7 @@ import ProductDetail from "../components/Product/ProductDetail";
 import { CartProvider } from "../components/Cart/CartContext";
 import Services from "../pages/Services";
 import Portfolio from "../pages/Portfolio";
-
+import PrivacyPolicy from "../pages/PrivacyPolicy";
 export default function AppRouter() {
   return (
     <>
@@ -27,6 +27,7 @@ export default function AppRouter() {
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/products/:id" element={<ProductDetail />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="*" element={<NotFound />} />
           <Route
   path="/admin/products"
