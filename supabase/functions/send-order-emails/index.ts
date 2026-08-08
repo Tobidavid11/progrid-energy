@@ -1,9 +1,12 @@
 // supabase/functions/send-order-emails/index.ts
 //
-// Triggered by a Database Webhook on `orders` INSERT (configured in the
-// Supabase dashboard — Database > Webhooks — not in code). Sends two
-// emails via Resend: an order receipt to the customer, and a
-// notification to whoever monitors orders internally.
+// Triggered by a Postgres trigger (fix_order_email_timing.sql) that
+// fires when an order's payment_status transitions to 'paid' — NOT on
+// order creation. This is deliberate: sending a "Thanks for your
+// order!" receipt before payment is confirmed is misleading, since the
+// order could still be abandoned or fail. Sends two emails via Resend:
+// an order receipt to the customer, and a notification to whoever
+// monitors orders internally.
 //
 // Deploy: supabase functions deploy send-order-emails
 // Secrets needed: RESEND_API_KEY (required)
@@ -37,7 +40,7 @@ interface OrderRecord {
 }
 
 interface WebhookPayload {
-  type: "INSERT" | "UPDATE" | "DELETE";
+  type: "PAYMENT_CONFIRMED";
   table: string;
   record: OrderRecord;
   schema: string;
@@ -161,7 +164,7 @@ Deno.serve(async (req: Request) => {
     return new Response("Invalid JSON", { status: 400 });
   }
 
-  if (payload.type !== "INSERT" || payload.table !== "orders") {
+  if (payload.type !== "PAYMENT_CONFIRMED" || payload.table !== "orders") {
     // Not something we care about — 200 so the webhook doesn't retry.
     return new Response("Ignored", { status: 200 });
   }
