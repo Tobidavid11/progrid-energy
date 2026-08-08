@@ -1,3 +1,4 @@
+import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { X, Trash2, ChevronLeft, ChevronRight, ShoppingBag } from "lucide-react";
 import { useCart } from "./CartContext";
@@ -23,12 +24,12 @@ export default function CartDrawer({
 }: CartDrawerProps) {
   const { items, removeItem, updateQty, subtotal } = useCart();
 
-  return (
-    <AnimatePresence >
+  return createPortal(
+    <AnimatePresence>
       {isOpen && (
         <>
           <motion.div
-            className="cart-drawer__backdrop background_check"
+            className="cart-drawer__backdrop"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -142,6 +143,7 @@ export default function CartDrawer({
           </motion.div>
         </>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   );
 }
