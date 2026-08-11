@@ -68,6 +68,12 @@
   font-size: var(--fs-small);
   color: var(--text-muted);
   margin-bottom: var(--space-3);
+
+   display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .product-card__stepper {

@@ -32,6 +32,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
   };
 
   return (
+     <Link to={`/products/${product.id}`} > 
     <motion.div
       className="product-card"
       initial={{ opacity: 0, y: 24 }}
@@ -40,14 +41,14 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
       transition={{ delay: index * 0.08, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       whileHover={{ y: -4 }}
     >
-      <Link to={`/products/${product.id}`} className="product-card__image">
+      <div  className="product-card__image">
         <motion.img
           src={product.image}
           alt={product.name}
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         />
-      </Link>
+      </div>
 
       <div className="product-card__body">
         <div className="product-card__top">
@@ -119,5 +120,6 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
         </div>
       </div>
     </motion.div>
+       </Link>
   );
 }
