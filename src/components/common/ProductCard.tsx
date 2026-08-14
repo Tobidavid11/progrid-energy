@@ -17,7 +17,7 @@ interface ProductCardProps {
 
 export default function ProductCard({ product, index = 0 }: ProductCardProps) {
   const { addItem } = useCart();
-  const [qty, setQty] = useState(0);
+  const [qty, setQty] = useState(1);
   const [justAdded, setJustAdded] = useState(false);
   const effectiveQty = Math.max(qty, 1);
   const unitPrice = getEffectiveUnitPrice(product, effectiveQty);
@@ -27,12 +27,12 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
   const handleAddToCart = () => {
     addItem(product, effectiveQty);
     setJustAdded(true);
-    setQty(0);
+    setQty(1);
     setTimeout(() => setJustAdded(false), 1400);
   };
 
   return (
-     <Link to={`/products/${product.id}`} > 
+     
     <motion.div
       className="product-card"
       initial={{ opacity: 0, y: 24 }}
@@ -41,6 +41,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
       transition={{ delay: index * 0.08, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       whileHover={{ y: -4 }}
     >
+      <Link to={`/products/${product.id}`} > 
       <div  className="product-card__image">
         <motion.img
           src={product.image}
@@ -49,6 +50,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         />
       </div>
+      </Link>
 
       <div className="product-card__body">
         <div className="product-card__top">
@@ -60,7 +62,9 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
           </span>
         </div>
 
+<Link to={`/products/${product.id}`} > 
         <p className="product-card__desc">{product.description}</p>
+        </Link>
 
         <div className="product-card__stepper">
           <button
@@ -120,6 +124,6 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
         </div>
       </div>
     </motion.div>
-       </Link>
+       
   );
 }

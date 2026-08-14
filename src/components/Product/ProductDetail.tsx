@@ -6,6 +6,7 @@ import { fetchProductById } from "../Product/ProductApi";
 import { useCart } from "../Cart/CartContext";
 import { getEffectiveUnitPrice, type Product } from "../../types/ProductTypes";
 import "./ProductDetail.css";
+import Navbar from "../common/NavBar";
 
 function formatNaira(value: number) {
   return `₦${value.toLocaleString("en-NG")}`;
@@ -51,12 +52,15 @@ export default function ProductDetail() {
 
   if (errorMessage || !product) {
     return (
+      <>
+      <Navbar/>
       <div className="product-detail__state product-detail__state--error">
         {errorMessage || "Product not found."}
         <Link to="/products" className="product-detail__back-link">
           <ChevronLeft size={14} /> Back to Products
         </Link>
       </div>
+      </>
     );
   }
 
@@ -68,6 +72,8 @@ export default function ProductDetail() {
   const isBulkPrice = unitPrice < product.price;
 
   return (
+    <>
+    <Navbar/>
     <div className="product-detail">
       <div className="container">
         <Link to="/products" className="product-detail__back-link">
@@ -215,5 +221,6 @@ export default function ProductDetail() {
         </motion.div>
       </div>
     </div>
+    </>
   );
 }

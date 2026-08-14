@@ -1,5 +1,5 @@
 .product-detail {
-  padding: var(--space-5, 2.5rem) 0 var(--space-7, 6rem);
+  padding: var(--space-8, 2.5rem) 0 var(--space-7, 6rem);
 }
 
 .product-detail__state {
