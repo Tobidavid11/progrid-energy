@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useMemo } from "react";
 import { Search, Pencil, Trash2, Loader2 } from "lucide-react";
 import { supabase } from "../../lib/supabase";
 import type { DbProduct } from "../../types/ProductTypes";
@@ -9,6 +9,11 @@ interface AdminProductListProps {
   onEdit?: (product: DbProduct) => void;
   /** Bump this to force a refetch after a product is added elsewhere (e.g. the form). */
   refreshKey?: number;
+}
+
+interface CategoryCount {
+  category: string;
+  count: number;
 }
 
 const PAGE_SIZE = 10;
@@ -29,6 +34,34 @@ export default function AdminProductList({
   const [errorMessage, setErrorMessage] = useState("");
   const [pendingId, setPendingId] = useState<string | null>(null);
 
+  const [categoryCounts, setCategoryCounts] = useState<CategoryCount[]>([]);
+  const [isCategoriesLoading, setIsCategoriesLoading] = useState(true);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+
+  const totalProductCount = useMemo(
+    () => categoryCounts.reduce((sum, c) => sum + c.count, 0),
+    [categoryCounts]
+  );
+
+  const fetchCategoryCounts = useCallback(async () => {
+    setIsCategoriesLoading(true);
+
+    const { data, error } = await supabase.from("products").select("category");
+
+    if (!error && data) {
+      const counts = new Map<string, number>();
+      for (const row of data as { category: string }[]) {
+        if (!row.category) continue;
+        counts.set(row.category, (counts.get(row.category) ?? 0) + 1);
+      }
+      const sorted = Array.from(counts.entries())
+        .map(([category, count]) => ({ category, count }))
+        .sort((a, b) => b.count - a.count);
+      setCategoryCounts(sorted);
+    }
+    setIsCategoriesLoading(false);
+  }, []);
+
   const fetchProducts = useCallback(async () => {
     setIsLoading(true);
     setErrorMessage("");
@@ -40,6 +73,10 @@ export default function AdminProductList({
 
     if (searchTerm.trim()) {
       query = query.ilike("name", `%${searchTerm.trim()}%`);
+    }
+
+    if (selectedCategory) {
+      query = query.eq("category", selectedCategory);
     }
 
     const from = (page - 1) * PAGE_SIZE;
@@ -55,16 +92,24 @@ export default function AdminProductList({
       setTotalPages(Math.max(1, Math.ceil((count ?? 0) / PAGE_SIZE)));
     }
     setIsLoading(false);
-  }, [searchTerm, page]);
+  }, [searchTerm, page, selectedCategory]);
 
   useEffect(() => {
     fetchProducts();
   }, [fetchProducts, refreshKey]);
 
-  // A new search invalidates whatever page you were on.
+  useEffect(() => {
+    fetchCategoryCounts();
+  }, [fetchCategoryCounts, refreshKey]);
+
+  // A new search or category filter invalidates whatever page you were on.
   useEffect(() => {
     setPage(1);
-  }, [searchTerm]);
+  }, [searchTerm, selectedCategory]);
+
+  const handleCategoryClick = (category: string) => {
+    setSelectedCategory((prev) => (prev === category ? null : category));
+  };
 
   const toggleStock = async (product: DbProduct) => {
     setPendingId(product.id);
@@ -98,12 +143,48 @@ export default function AdminProductList({
     if (!error) {
       setProducts((prev) => prev.filter((p) => p.id !== product.id));
       fetchProducts(); // re-check pagination bounds now that a row is gone
+      fetchCategoryCounts(); // counts have shifted too
     }
     setPendingId(null);
   };
 
   return (
     <div className="admin-product-list">
+      {!isCategoriesLoading && categoryCounts.length > 0 && (
+        <div className="admin-product-list__categories">
+          <button
+            type="button"
+            className={`admin-product-list__category-card ${
+              selectedCategory === null ? "is-active" : ""
+            }`}
+            onClick={() => setSelectedCategory(null)}
+          >
+            <span className="admin-product-list__category-name">All</span>
+            <span className="admin-product-list__category-count">
+              {totalProductCount}
+            </span>
+          </button>
+
+          {categoryCounts.map(({ category, count }) => (
+            <button
+              key={category}
+              type="button"
+              className={`admin-product-list__category-card ${
+                selectedCategory === category ? "is-active" : ""
+              }`}
+              onClick={() => handleCategoryClick(category)}
+            >
+              <span className="admin-product-list__category-name">
+                {category}
+              </span>
+              <span className="admin-product-list__category-count">
+                {count}
+              </span>
+            </button>
+          ))}
+        </div>
+      )}
+
       <div className="admin-product-list__search">
         <Search size={16} strokeWidth={2} />
         <input

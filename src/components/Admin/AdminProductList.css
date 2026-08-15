@@ -4,6 +4,74 @@
   gap: var(--space-4, 1.5rem);
 }
 
+.admin-product-list__categories {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2, 0.5rem);
+  overflow-x: auto;
+  padding-bottom: 2px;
+  scrollbar-width: thin;
+}
+
+.admin-product-list__categories::-webkit-scrollbar {
+  height: 4px;
+}
+
+.admin-product-list__categories::-webkit-scrollbar-thumb {
+  background: var(--line-strong, rgba(13, 13, 13, 0.16));
+  border-radius: 999px;
+}
+
+.admin-product-list__category-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  border: 1px solid var(--line, rgba(13, 13, 13, 0.09));
+  background: var(--bg-void, #ffffff);
+  border-radius: var(--radius-sm, 6px);
+  padding: 0.5rem 0.85rem;
+  cursor: pointer;
+  font-family: var(--font-body, "Inter", sans-serif);
+  transition: border-color 0.15s ease, background 0.15s ease,
+    color 0.15s ease;
+}
+
+.admin-product-list__category-card:hover {
+  border-color: var(--line-strong, rgba(13, 13, 13, 0.16));
+}
+
+.admin-product-list__category-name {
+  font-size: var(--fs-small, 0.875rem);
+  font-weight: 600;
+  color: var(--text-primary, #0d0d0d);
+  white-space: nowrap;
+}
+
+.admin-product-list__category-count {
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: var(--fs-mono, 0.8125rem);
+  color: var(--text-faint, #8a8a86);
+  background: var(--bg-elevated-2, #efefec);
+  border-radius: 999px;
+  padding: 0.1rem 0.5rem;
+  line-height: 1.4;
+}
+
+.admin-product-list__category-card.is-active {
+  background: var(--text-primary, #0d0d0d);
+  border-color: var(--text-primary, #0d0d0d);
+}
+
+.admin-product-list__category-card.is-active .admin-product-list__category-name {
+  color: var(--bg-void, #ffffff);
+}
+
+.admin-product-list__category-card.is-active .admin-product-list__category-count {
+  background: rgba(255, 255, 255, 0.18);
+  color: var(--bg-void, #ffffff);
+}
+
 .admin-product-list__search {
   display: flex;
   align-items: center;
@@ -160,5 +228,8 @@
 @media (prefers-reduced-motion: reduce) {
   .admin-product-list__spin {
     animation: none !important;
+  }
+  .admin-product-list__category-card {
+    transition: none !important;
   }
 }
