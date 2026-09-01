@@ -27,7 +27,7 @@ const itemVariants = {
 
 export default function ProductsHero({
   heading = "Powering Every Space, One Product at a Time",
-  description = "From solar panels to inverters and batteries, explore reliable, high-performance energy solutions built for homes, businesses, and industries.",
+  description = "Explore reliable, high-performance energy solutions built for homes, businesses, and industries.",
 }: ProductsHeroProps) {
   return (
     <section className="products-hero" aria-label="Progrid Energy Products">

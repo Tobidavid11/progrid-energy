@@ -56,7 +56,7 @@ export default function AdminCouponForm({ onSaved }: AdminCouponFormProps) {
     const percent = parseInt(percentOff, 10);
     if (Number.isNaN(percent) || percent <= 0 || percent > 100) {
       setErrorMessage("Enter a discount percentage between 1 and 100.");
-      setStatus("error");
+      setStatus("error"); 
       return;
     }
 

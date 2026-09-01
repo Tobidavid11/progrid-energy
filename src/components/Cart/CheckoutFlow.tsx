@@ -1,13 +1,16 @@
 import { useState } from "react";
 import type {FormEvent} from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, CheckCircle2, XCircle, Loader2 } from "lucide-react";
+import { ArrowLeft, CheckCircle2, XCircle, Loader2, Truck } from "lucide-react";
 import { supabase } from "../../lib/supabase";
 import { validateCoupon } from "../../types/CouponApi";
 import { loadPaystackScript, type PaystackTransaction } from "../Product/Paystack";
 import { getEffectiveUnitPrice } from "../../types/ProductTypes";
 import { useCart, type CartItem } from "./CartContext";
 import "./CheckoutFlow.css";
+
+const SHIPPING_NOTICE =
+  "All orders are processed for shipping within 2 working days.";
 
 interface CheckoutFlowProps {
   onClose: () => void;
@@ -38,9 +41,6 @@ function lineTotal(item: CartItem): number {
   return getEffectiveUnitPrice(item.product, item.qty) * item.qty;
 }
 
-// A coupon's scope (all / one category / one product) means it may only
-// apply to some lines in a multi-item cart, not all of them — so it has
-// to be checked against every line individually, not just once.
 async function checkCouponAgainstCart(
   code: string,
   items: CartItem[]
@@ -416,6 +416,11 @@ export default function CheckoutFlow({ onClose }: CheckoutFlowProps) {
               </p>
             </div>
 
+            <div className="checkout-flow__shipping-notice">
+              <Truck size={15} />
+              <span>{SHIPPING_NOTICE}</span>
+            </div>
+
             {errorMessage && (
               <p className="checkout-flow__error">{errorMessage}</p>
             )}
@@ -506,7 +511,7 @@ export default function CheckoutFlow({ onClose }: CheckoutFlowProps) {
             <p>
               Thanks, {details.fullName.split(" ")[0]}. Your order is
               confirmed. Our team will call you at {details.phone} shortly
-              to confirm delivery.
+              to confirm delivery. {SHIPPING_NOTICE}
             </p>
             <button type="button" className="btn btn-primary" onClick={onClose}>
               Done

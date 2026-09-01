@@ -276,3 +276,20 @@
 .checkout-flow__cart-line--discount {
   color: var(--status-live, #1fae5c);
 }
+
+.checkout-flow__shipping-notice {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body, "Inter", sans-serif);
+  font-size: var(--fs-small, 0.875rem);
+  color: var(--text-muted, #5b5b58);
+  background: var(--bg-elevated, #f6f6f4);
+  border-radius: var(--radius-sm, 6px);
+  padding: 0.65rem 0.9rem;
+}
+
+.checkout-flow__shipping-notice svg {
+  flex-shrink: 0;
+  color: var(--accent-current, #fc4502);
+}
