@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Check } from "lucide-react";
 import { fetchProductById } from "../Product/ProductApi";
@@ -14,6 +14,7 @@ function formatNaira(value: number) {
 
 export default function ProductDetail() {
   const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
   const { addItem } = useCart();
 
   const [product, setProduct] = useState<Product | null>(null);
@@ -56,9 +57,13 @@ export default function ProductDetail() {
       <Navbar/>
       <div className="product-detail__state product-detail__state--error">
         {errorMessage || "Product not found."}
-        <Link to="/products" className="product-detail__back-link">
+        <button
+          type="button"
+          className="product-detail__back-link"
+          onClick={() => navigate(-1)}
+        >
           <ChevronLeft size={14} /> Back to Products
-        </Link>
+        </button>
       </div>
       </>
     );
@@ -76,9 +81,13 @@ export default function ProductDetail() {
     <Navbar/>
     <div className="product-detail">
       <div className="container">
-        <Link to="/products" className="product-detail__back-link">
+        <button
+          type="button"
+          className="product-detail__back-link"
+          onClick={() => navigate(-1)}
+        >
           <ChevronLeft size={14} /> Back to Products
-        </Link>
+        </button>
 
         <motion.div
           className="product-detail__layout"

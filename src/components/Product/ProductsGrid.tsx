@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { Loader2 } from "lucide-react";
 import ProductCard from "../common/ProductCard";
 import ProductSearchBar, { type ProductFilters } from "./ProductSearchBar";
@@ -18,20 +19,37 @@ export default function ProductsGrid() {
     searchTerm: "",
     category: "All Categories",
   });
-  const [page, setPage] = useState(1);
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const page = Number(searchParams.get("page")) || 1;
+  const setPage = (next: number) => {
+    setSearchParams((prev) => {
+      const params = new URLSearchParams(prev);
+      params.set("page", String(next));
+      return params;
+    });
+  };
+
   const [totalPages, setTotalPages] = useState(1);
 
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  // Tracks the filters we last actually applied, so we can tell a *real*
+  // filter change from ProductSearchBar just re-announcing its current
+  // (unchanged) value on mount/re-render.
+  const filtersRef = useRef(filters);
 
-  // Debounced: only updates `filters` state, doesn't fetch directly.
-  // The effect below (watching filters + page) does the actual fetch,
-  // so page changes (Prev/Next) can skip the debounce entirely and
-  // respond instantly.
   const handleFilterChange = (next: ProductFilters) => {
     if (debounceRef.current) clearTimeout(debounceRef.current);
     debounceRef.current = setTimeout(() => {
+      const changed =
+        next.searchTerm !== filtersRef.current.searchTerm ||
+        next.category !== filtersRef.current.category;
+
+      if (!changed) return; // nothing actually changed — don't touch the page
+
+      filtersRef.current = next;
       setFilters(next);
-      setPage(1); // A new search/category invalidates whatever page you were on.
+      setPage(1); // A real new search/category invalidates whatever page you were on.
     }, DEBOUNCE_MS);
   };
 
@@ -98,11 +116,7 @@ export default function ProductsGrid() {
         {!isLoading && products.length > 0 && (
           <div className="products-grid-section__grid">
             {products.map((product, i) => (
-              <ProductCard
-                key={product.id}
-                product={product}
-                index={i}
-              />
+              <ProductCard key={product.id} product={product} index={i} />
             ))}
           </div>
         )}
@@ -111,7 +125,6 @@ export default function ProductsGrid() {
           <Pagination page={page} totalPages={totalPages} onPageChange={setPage} />
         )}
       </div>
-
     </div>
   );
 }
