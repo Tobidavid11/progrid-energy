@@ -2,9 +2,12 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import "./ProductBanner.css";
 
-import banner1 from "../../assets/Banner1.png";
-import banner2 from "../../assets/Banner2.png";
-import banner3 from "../../assets/Banner3.png";
+// import banner1 from "../../assets/Banner1.png";
+// import banner2 from "../../assets/Banner2.png";
+// import banner3 from "../../assets/Banner3.png";
+import banner4 from "../../assets/Banner 4.png"; 
+import banner5 from "../../assets/Banner 5.png";
+import banner6 from "../../assets/Banner 6.png";
 // Optional tighter mobile crops — remove the ones you don't have.
 // import banner1Mobile from "../../assets/banners/banner-1-mobile.jpg";
 
@@ -30,21 +33,21 @@ export interface BannerSlide {
 const DEFAULT_SLIDES: BannerSlide[] = [
   {
     id: 1,
-    image: banner1,
+    image: banner4,
     // mobileImage: banner1Mobile,
     href: "/products?category=sale",
-    alt: "Weekend flash sale",
+    alt: "Camera Sales - 7% off",
   },
   {
     id: 2,
-    image: banner2,
+    image: banner5,
     href: "/products?filter=new",
-    alt: "New arrivals for August",
+    alt: "Itel powergo Pro Promo sales - 3% off",
   },
   {
     id: 3,
-    image: banner3,
-    alt: "Independence Day flyer",
+    image: banner6,
+    alt: "Power Tank promo sales - 3% off",
   },
 ];
 
