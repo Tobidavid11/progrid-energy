@@ -13,6 +13,8 @@ import { CartProvider } from "../components/Cart/CartContext";
 import Services from "../pages/Services";
 import Portfolio from "../pages/Portfolio";
 import PrivacyPolicy from "../pages/PrivacyPolicy";
+import Blogs from "../pages/Blogs";
+import BlogDetails from "../components/Blogs/BlogDetails";
 export default function AppRouter() {
   return (
     <>
@@ -28,6 +30,8 @@ export default function AppRouter() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/products/:id" element={<ProductDetail />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/blogs" element={<Blogs />} />
+<Route path="/blogs/:slug" element={<BlogDetails />} />
           <Route path="*" element={<NotFound />} />
           <Route
   path="/admin/products"

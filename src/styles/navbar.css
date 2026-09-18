@@ -92,6 +92,66 @@
   color: var(--text-primary);
 }
 
+/* Dropdown (Services + Portfolio merged under one trigger) */
+.navbar__dropdown {
+  position: relative;
+}
+
+.navbar__dropdown-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+}
+
+.navbar__dropdown-chevron {
+  transition: transform 0.25s var(--ease-grid);
+}
+
+.navbar__dropdown--open .navbar__dropdown-chevron {
+  transform: rotate(180deg);
+}
+
+.navbar__dropdown-menu {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 0;
+  min-width: 180px;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 50px rgba(13, 13, 13, 0.14);
+  padding: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  z-index: 52;
+}
+
+.navbar__dropdown-item {
+  display: block;
+  padding: 0.6rem 0.85rem;
+  border-radius: 999px;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--text-faint);
+  white-space: nowrap;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.navbar__dropdown-item:hover {
+  background: var(--glass-bg-light);
+  color: var(--text-primary);
+}
+
+.navbar__dropdown-item.active {
+  color: var(--text-primary);
+  background: rgba(252, 69, 2, 0.08);
+}
+
 /* Actions */
 .navbar__actions {
   display: flex;
@@ -185,5 +245,25 @@ display:none
 
   .navbar__links--open {
     display: flex;
+  }
+
+  /* Dropdown becomes an inline accordion instead of a floating panel */
+  .navbar__dropdown-menu {
+    position: static;
+    box-shadow: none;
+    border: none;
+    background: none;
+    padding: var(--space-2) 0 0 var(--space-3);
+    margin-top: 0;
+  }
+
+  .navbar__dropdown-item {
+    padding: 0.45rem 0;
+    border-radius: 0;
+  }
+
+  .navbar__dropdown-item:hover,
+  .navbar__dropdown-item.active {
+    background: none;
   }
 }

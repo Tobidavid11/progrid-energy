@@ -1,0 +1,110 @@
+.blog-detail {
+  padding: var(--space-5, 2.5rem) 0 var(--space-7, 6rem);
+}
+
+.blog-detail__state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3, 1rem);
+  text-align: center;
+  padding: var(--space-7, 6rem) var(--space-4, 1.5rem);
+  font-family: var(--font-body, "Inter", sans-serif);
+  font-size: var(--fs-body, 1rem);
+  color: var(--text-muted, #5b5b58);
+}
+
+.blog-detail__state--error {
+  color: var(--status-out, #e0413a);
+}
+
+.blog-detail__back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  font-family: var(--font-body, "Inter", sans-serif);
+  font-size: var(--fs-small, 0.875rem);
+  font-weight: 600;
+  color: var(--text-muted, #5b5b58);
+  margin-bottom: var(--space-4, 1.5rem);
+  cursor: pointer;
+}
+
+.blog-detail__back-link:hover {
+  color: var(--accent-current, #fc4502);
+}
+
+.blog-detail__category {
+  display: inline-block;
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: var(--fs-mono, 0.8125rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-current, #fc4502);
+  margin-bottom: var(--space-3, 1rem);
+}
+
+.blog-detail__title {
+  font-family: var(--font-display, "Space Grotesk", sans-serif);
+  font-size: var(--fs-display-lg, clamp(2.25rem, 3vw + 1rem, 3.5rem));
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--text-primary, #0d0d0d);
+  margin: 0 0 var(--space-3, 1rem);
+  max-width: 30ch;
+}
+
+.blog-detail__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4, 1.5rem);
+  margin-bottom: var(--space-5, 2.5rem);
+}
+
+.blog-detail__meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body, "Inter", sans-serif);
+  font-size: var(--fs-small, 0.875rem);
+  color: var(--text-faint, #8a8a86);
+}
+
+.blog-detail__cover {
+  width: 100%;
+  max-height: 480px;
+  border-radius: var(--radius-lg, 18px);
+  overflow: hidden;
+  margin-bottom: var(--space-5, 2.5rem);
+  background: var(--bg-elevated, #f6f6f4);
+}
+
+.blog-detail__cover img {
+  width: 100%;
+  height: 100%;
+  max-height: 480px;
+  object-fit: cover;
+  display: block;
+}
+
+.blog-detail__content {
+  max-width: 100%;
+  font-family: var(--font-body, "Inter", sans-serif);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-primary, #0d0d0d);
+}
+
+.blog-detail__content p {
+  margin: 0 0 var(--space-4, 1.5rem);
+  color: inherit;
+}
+
+@media (max-width: 640px) {
+  .blog-detail__meta {
+    flex-wrap: wrap;
+    gap: var(--space-3, 1rem);
+  }
+}

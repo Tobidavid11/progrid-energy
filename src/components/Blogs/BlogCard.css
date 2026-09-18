@@ -1,0 +1,105 @@
+.blog-card {
+  border: 1px solid var(--line, rgba(13, 13, 13, 0.09));
+  border-radius: var(--radius-lg, 18px);
+  overflow: hidden;
+  background: #ffffff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-card:hover {
+  border-color: var(--line-strong, rgba(13, 13, 13, 0.16));
+  box-shadow: 0 18px 44px rgba(13, 13, 13, 0.08);
+}
+
+.blog-card__image {
+  display: block;
+  height: 200px;
+  overflow: hidden;
+  background: var(--bg-elevated, #f6f6f4);
+}
+
+.blog-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.blog-card__body {
+  padding: var(--space-4, 1.5rem);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.blog-card__category {
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: var(--fs-mono, 0.8125rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-current, #fc4502);
+  margin-bottom: var(--space-2, 0.5rem);
+}
+
+.blog-card__title-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.blog-card__title {
+  font-family: var(--font-display, "Space Grotesk", sans-serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--text-primary, #0d0d0d);
+  margin: 0 0 var(--space-2, 0.5rem);
+}
+
+.blog-card__excerpt {
+  font-family: var(--font-body, "Inter", sans-serif);
+  font-size: var(--fs-small, 0.875rem);
+  line-height: 1.6;
+  color: var(--text-muted, #5b5b58);
+  margin: 0 0 var(--space-4, 1.5rem);
+  flex: 1;
+
+  display: -webkit-box;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.blog-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3, 1rem);
+  padding-top: var(--space-3, 1rem);
+  border-top: 1px solid var(--line, rgba(13, 13, 13, 0.09));
+}
+
+.blog-card__date {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: var(--fs-mono, 0.8125rem);
+  color: var(--text-faint, #8a8a86);
+}
+
+.blog-card__read-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-body, "Inter", sans-serif);
+  font-size: var(--fs-small, 0.875rem);
+  font-weight: 600;
+  color: var(--accent-current, #fc4502);
+  text-decoration: none;
+  transition: gap 0.2s ease;
+}
+
+.blog-card__read-more:hover {
+  gap: 7px;
+}
