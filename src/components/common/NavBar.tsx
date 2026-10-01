@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import logo from "../../assets/Logo.svg";
+// import logo from "../../assets/Logo.svg";
+import logo from "../../assets/Group 1000001182.png";
 import "../../styles/navbar.css";
 import CartButton from "../Cart/CartButton";
 
